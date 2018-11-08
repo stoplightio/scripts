@@ -1,0 +1,112 @@
+{
+  "name": "@stoplight/scripts",
+  "version": "0.0.0",
+  "description": "Scripts to aid in testing, releasing, and linting.",
+  "keywords": [],
+  "sideEffects": false,
+  "homepage": "https://github.com/stoplightio/scripts",
+  "bugs": "https://github.com/stoplightio/scripts/issues",
+  "author": "Stoplight <support@stoplight.io>",
+  "repository": "stoplightio/scripts",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/bin",
+    "/dist",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "jest-preset.js",
+    "tsconfig.json",
+    "tslint.json"
+  ],
+  "oclif": {
+    "commands": "./dist/commands",
+    "bin": "sl-scripts",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "bin": {
+    "sl-scripts": "./bin/run"
+  },
+  "scripts": {
+    "build": "tsc -p ./tsconfig.build.json && oclif-dev manifest && oclif-dev readme",
+    "test": "jest",
+    "test.watch": "jest --watch",
+    "test.prod": "yarn lint && yarn test --coverage --no-cache",
+    "test.update": "yarn test --updateSnapshot",
+    "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts'",
+    "format": "yarn lint --fix",
+    "commit": "git-cz",
+    "release": "semantic-release",
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "rm -rf dist && yarn build"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "tslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "release": {
+    "pkgRoot": "dist",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "dependencies": {
+    "@commitlint/cli": "7.2.x",
+    "@commitlint/config-conventional": "7.1.x",
+    "@oclif/command": "1.5.x",
+    "@oclif/config": "1.9.x",
+    "@oclif/plugin-help": "2.1.x",
+    "@semantic-release/commit-analyzer": "6.1.x",
+    "@semantic-release/git": "7.0.x",
+    "@semantic-release/github": "5.2.x",
+    "@semantic-release/npm": "5.0.x",
+    "@semantic-release/release-notes-generator": "7.1.x",
+    "@types/jest": "23.3.x",
+    "@types/node": "10.12.x",
+    "commitizen": "3.0.x",
+    "cz-conventional-changelog": "2.1.x",
+    "husky": "1.1.x",
+    "jest": "23.6.x",
+    "lint-staged": "8.0.x",
+    "rimraf": "2.6.x",
+    "semantic-release": "15.10.x",
+    "shelljs": "0.8.x",
+    "ts-jest": "23.10.x",
+    "ts-node": "7.0.x",
+    "tslib": "1.9.x",
+    "tslint-config-stoplight": "1.2.x",
+    "typedoc": "0.13.x",
+    "typescript": "3.1.x"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "1.19.x",
+    "@types/shelljs": "0.8.x"
+  }
+}
