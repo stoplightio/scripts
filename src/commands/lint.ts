@@ -3,7 +3,7 @@ import * as shell from 'shelljs';
 
 import { buildCommand, getConfigFilePath } from '../utils';
 
-export default class Lint extends Command {
+export default class LintCommand extends Command {
   public static strict = false;
 
   public static description = 'Runs tslint. Supports all tslint flags.';
@@ -27,7 +27,7 @@ export default class Lint extends Command {
   };
 
   public async run() {
-    const parsed = this.parse(Lint);
+    const parsed = this.parse(LintCommand);
 
     let command = buildCommand('tslint', {
       defaultArgs: {

@@ -3,7 +3,7 @@ import * as shell from 'shelljs';
 
 import { buildCommand, getConfigFilePath } from '../utils';
 
-export default class Test extends Command {
+export default class TestCommand extends Command {
   public static strict = false;
 
   public static description = 'Runs Jest. Supports all Jest flags.';
@@ -31,7 +31,7 @@ export default class Test extends Command {
   };
 
   public async run() {
-    const parsed = this.parse(Test);
+    const parsed = this.parse(TestCommand);
 
     const command = buildCommand('jest', {
       defaultArgs: {
