@@ -1,0 +1,62 @@
+{
+  "name": "",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "sideEffects": false,
+  "homepage": "",
+  "bugs": "",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "Apache-2.0",
+  "main": "src/index.ts",
+  "files": [
+    "**/*"
+  ],
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "scripts": {
+    "build": "sl-scripts build",
+    "build.docs": "sl-scripts build:tsdoc",
+    "test": "sl-scripts test",
+    "test.watch": "yarn test --watch",
+    "test.prod": "yarn lint && yarn test --coverage --no-cache",
+    "test.update": "yarn test --updateSnapshot",
+    "lint": "sl-scripts lint",
+    "format": "yarn lint --fix",
+    "commit": "git-cz",
+    "release": "sl-scripts release",
+    "release.dryRun": "sl-scripts release --dry-run --debug",
+    "release.docs": "sl-scripts release:docs"
+  },
+  "lint-staged": {
+    "src/*.ts": [
+      "yarn format",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@stoplight/scripts": "1.0.x"
+  }
+}

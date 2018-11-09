@@ -30,6 +30,7 @@ USAGE
 <!-- commands -->
 * [`sl-scripts build`](#sl-scripts-build)
 * [`sl-scripts build:tsdoc`](#sl-scripts-buildtsdoc)
+* [`sl-scripts create:lib`](#sl-scripts-createlib)
 * [`sl-scripts help [COMMAND]`](#sl-scripts-help-command)
 * [`sl-scripts lint`](#sl-scripts-lint)
 * [`sl-scripts release`](#sl-scripts-release)
@@ -70,6 +71,20 @@ EXAMPLE
 ```
 
 _See code: [dist/commands/build/tsdoc.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/tsdoc.js)_
+
+## `sl-scripts create:lib`
+
+Scaffold out a new library.
+
+```
+USAGE
+  $ sl-scripts create:lib
+
+EXAMPLE
+  $ sl-scripts create:lib
+```
+
+_See code: [dist/commands/create/lib.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/create/lib.js)_
 
 ## `sl-scripts help [COMMAND]`
 

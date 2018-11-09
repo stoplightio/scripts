@@ -1,7 +1,7 @@
 {
   "name": "@stoplight/scripts",
   "version": "0.0.0",
-  "description": "Scripts to aid in testing, releasing, and linting.",
+  "description": "Scripts that help when creating, testing, releasing, and linting libraries.",
   "keywords": [],
   "sideEffects": false,
   "homepage": "https://github.com/stoplightio/scripts",
@@ -17,6 +17,7 @@
   "files": [
     "/bin",
     "/dist",
+    "/scaffold",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json",
     "jest-preset.js",
@@ -52,8 +53,8 @@
     "prepack": "rm -rf dist && yarn build"
   },
   "lint-staged": {
-    "*.ts": [
-      "tslint --fix",
+    "src/*.ts": [
+      "yarn format",
       "git add"
     ]
   },
@@ -62,15 +63,6 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
-  },
-  "release": {
-    "pkgRoot": "dist",
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      "@semantic-release/github"
-    ]
   },
   "config": {
     "commitizen": {
@@ -99,6 +91,7 @@
     "commitizen": "3.0.x",
     "cz-conventional-changelog": "2.1.x",
     "husky": "1.1.x",
+    "inquirer": "6.2.x",
     "jest": "23.6.x",
     "lint-staged": "8.0.x",
     "rimraf": "2.6.x",
@@ -112,6 +105,7 @@
   },
   "devDependencies": {
     "@oclif/dev-cli": "1.19.x",
+    "@types/inquirer": "0.0.x",
     "@types/shelljs": "0.8.x",
     "ts-node": "7.0.x"
   }

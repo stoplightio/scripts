@@ -1,0 +1,8 @@
+{
+  "extends": "./node_modules/@stoplight/scripts/tsconfig.build.json",
+  "include": ["src"],
+  "exclude": ["**/__tests__/**"],
+  "compilerOptions": {
+    "outDir": "dist"
+  }
+}
