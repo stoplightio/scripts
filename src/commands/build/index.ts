@@ -1,15 +1,18 @@
 import { Command, flags as flagHelpers } from '@oclif/command';
-import * as path from 'path';
+import cli from 'cli-ux';
+import * as fs from 'fs';
 import * as shell from 'shelljs';
 
-import { buildCommand, getConfigFilePath } from '../../utils';
+import { buildCommand, buildPath, getConfigFilePath } from '../../utils';
+
+const _pick = require('lodash/pick');
 
 export default class BuildCommand extends Command {
   public static strict = false;
 
-  public static description = 'Builds src files.';
+  public static description = 'Builds src or docs.';
 
-  public static examples = [`$ sl-scripts build`];
+  public static examples = [`$ sl-scripts build`, `$ sl-scripts build:tsdoc`];
 
   public static args = [];
 
@@ -21,6 +24,8 @@ export default class BuildCommand extends Command {
   };
 
   public async run() {
+    cli.action.start('building...', undefined, { stdout: true });
+
     const parsed = this.parse(BuildCommand);
 
     const commands = [];
@@ -36,10 +41,6 @@ export default class BuildCommand extends Command {
       })
     );
 
-    commands.push(
-      `node ${path.resolve(process.cwd(), 'node_modules', '@stoplight', 'scripts', 'dist', 'post-build-preparation')}`
-    );
-
     if (parsed.flags.verbose) {
       this.log(`commands:`);
       for (const command of commands) {
@@ -50,5 +51,43 @@ export default class BuildCommand extends Command {
     for (const command of commands) {
       shell.exec(command);
     }
+
+    cli.action.stop();
+
+    this.postPublish();
+  }
+
+  public postPublish() {
+    cli.action.start('copying extra files ot dist folder...', undefined, {
+      stdout: true,
+    });
+
+    const pkg = JSON.parse(fs.readFileSync(buildPath('package.json')) as any);
+    const releasePkg = _pick(pkg, [
+      'name',
+      'version',
+      'description',
+      'keywords',
+      'main',
+      'typings',
+      'sideEffects',
+      'files',
+      'author',
+      'repository',
+      'license',
+      'engines',
+      'optionalDependencies',
+      'peerDependencies',
+      'dependencies',
+    ]);
+
+    releasePkg.main = 'index.js';
+    releasePkg.typings = 'index.d.ts';
+
+    fs.writeFileSync(buildPath('dist', 'package.json'), JSON.stringify(releasePkg, null, 2));
+    fs.copyFileSync(buildPath('README.md'), buildPath('dist', 'README.md'));
+    fs.copyFileSync(buildPath('LICENSE'), buildPath('dist', 'LICENSE'));
+
+    cli.action.stop();
   }
 }

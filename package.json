@@ -7,7 +7,10 @@
   "homepage": "https://github.com/stoplightio/scripts",
   "bugs": "https://github.com/stoplightio/scripts/issues",
   "author": "Stoplight <support@stoplight.io>",
-  "repository": "stoplightio/scripts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stoplightio/scripts.git"
+  },
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,6 +38,7 @@
     "sl-scripts": "./bin/run"
   },
   "scripts": {
+    "prebuild": "rimraf dist",
     "build": "tsc -p ./tsconfig.build.json && oclif-dev manifest && oclif-dev readme",
     "test": "jest",
     "test.watch": "jest --watch",
@@ -91,6 +95,7 @@
     "@semantic-release/release-notes-generator": "7.1.x",
     "@types/jest": "23.3.x",
     "@types/node": "10.12.x",
+    "cli-ux": "4.9.x",
     "commitizen": "3.0.x",
     "cz-conventional-changelog": "2.1.x",
     "husky": "1.1.x",

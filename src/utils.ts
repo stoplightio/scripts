@@ -28,3 +28,7 @@ export const getConfigFilePath = (name: string): string => {
 
   return path.resolve(process.cwd(), 'node_modules', '@stoplight', 'scripts', name);
 };
+
+export const buildPath = (...args: any) => {
+  return path.resolve(process.cwd(), ...args);
+};
