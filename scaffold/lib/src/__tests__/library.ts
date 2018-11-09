@@ -9,5 +9,5 @@ describe('library', () => {
 
   test('should work', () => {
     expect(library.run()).toEqual(true);
-  })
-})
+  });
+});
