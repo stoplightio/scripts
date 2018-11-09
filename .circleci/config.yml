@@ -1,51 +1,46 @@
----
 version: 2
+
 jobs:
-  node-latest: &test
+  test_node_8:
     docker:
-      - image: node:latest
-    working_directory: ~/cli
-    steps:
-      - checkout
-      - restore_cache: &restore_cache
-          keys:
-            - v1-npm-{{checksum ".circleci/config.yml"}}-{{checksum "yarn.lock"}}
-            - v1-npm-{{checksum ".circleci/config.yml"}}
-      - run:
-          name: Install dependencies
-          command: yarn
-      - run: ./bin/run --version
-      - run: ./bin/run --help
-      - run:
-          name: Testing
-          command: yarn test
-  node-8:
-    <<: *test
-    docker:
-      - image: node:8
-  cache:
-    <<: *test
+      - image: circleci/node:8
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          command: yarn
-      - save_cache:
-          key: v1-npm-{{checksum ".circleci/config.yml"}}-{{checksum "yarn.lock"}}
-          paths:
-            - ~/cli/node_modules
-            - /usr/local/share/.cache/yarn
-            - /usr/local/share/.config/yarn
+          name: Download cc-test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run: yarn
+      - run:
+          name: cc-before
+          command: |
+            ./cc-test-reporter before-build
+      - run: yarn test.prod
+      - run:
+          name: cc-after
+          command: |
+            ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
+
+  release:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run: yarn
+      - run: yarn build
+      - run: yarn build.docs
+      - run: yarn release
+      - run: yarn release.docs
 
 workflows:
   version: 2
-  "@stoplight/scripts":
+  test_and_release:
     jobs:
-      - node-latest
-      - node-8
-      - cache:
+      - test_node_8
+      - release:
           filters:
-            tags:
-              only: /^v.*/
             branches:
-              ignore: /.*/
+              only: master
+          requires:
+            - test_node_8
