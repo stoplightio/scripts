@@ -83,6 +83,8 @@ export default class CreateLibCommand extends Command {
 
     shell.cp('-Rfn', path.resolve(__dirname, '..', '..', '..', 'scaffold', 'lib', '*'), targetDir);
     shell.cp('-Rfn', path.resolve(__dirname, '..', '..', '..', 'scaffold', 'lib', '.circleci', '*'), circleDir);
+    shell.cp('-Rfn', path.resolve(__dirname, '..', '..', '..', 'scaffold', 'lib', '.codeclimate.yml'), targetDir);
+    shell.cp('-Rfn', path.resolve(__dirname, '..', '..', '..', 'scaffold', 'lib', '.gitignore'), targetDir);
 
     this.writePackage(targetDir, responses);
     this.writeReadme(targetDir, responses);
