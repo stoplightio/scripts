@@ -28,6 +28,7 @@ USAGE
 
 <!-- commands -->
 * [`sl-scripts build`](#sl-scripts-build)
+* [`sl-scripts build:tsdoc`](#sl-scripts-buildtsdoc)
 * [`sl-scripts help [COMMAND]`](#sl-scripts-help-command)
 * [`sl-scripts lint`](#sl-scripts-lint)
 * [`sl-scripts test [PATH]`](#sl-scripts-test-path)
@@ -47,7 +48,24 @@ EXAMPLE
   $ sl-scripts build
 ```
 
-_See code: [dist/commands/build.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build.js)_
+_See code: [dist/commands/build/index.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/index.js)_
+
+## `sl-scripts build:tsdoc`
+
+Builds tsdoc files. Output into docs-auto folder.
+
+```
+USAGE
+  $ sl-scripts build:tsdoc
+
+OPTIONS
+  --verbose  moar logs
+
+EXAMPLE
+  $ sl-scripts build:tsdoc
+```
+
+_See code: [dist/commands/build/tsdoc.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/tsdoc.js)_
 
 ## `sl-scripts help [COMMAND]`
 

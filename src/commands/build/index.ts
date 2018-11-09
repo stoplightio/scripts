@@ -2,9 +2,8 @@ import { Command, flags as flagHelpers } from '@oclif/command';
 import * as path from 'path';
 import * as shell from 'shelljs';
 
-import { buildCommand, getConfigFilePath } from '../utils';
+import { buildCommand, getConfigFilePath } from '../../utils';
 
-// tsc -p ./tsconfig.build.json && ts-node scripts/post-build-preparation
 export default class BuildCommand extends Command {
   public static strict = false;
 
