@@ -4,7 +4,7 @@ import * as shell from 'shelljs';
 
 import { buildCommand } from '../../utils';
 
-export default class BuildCommand extends Command {
+export default class BuildTsdocCommand extends Command {
   public static strict = false;
 
   public static description = 'Builds tsdoc files. Output into docs-auto folder.';
@@ -21,26 +21,35 @@ export default class BuildCommand extends Command {
   };
 
   public async run() {
-    const parsed = this.parse(BuildCommand);
+    const parsed = this.parse(BuildTsdocCommand);
 
-    const command = `${buildCommand('typedoc', {
-      defaultArgs: {
-        out: `--out ${path.resolve(process.cwd(), 'docs-auto')}`,
-        target: `--target es6`,
-        theme: `--theme minimal`,
-        mode: `--mode file`,
-        excludeExternals: `--excludeExternals`,
-        excludeNotExported: `--excludeNotExported`,
-        excludePrivate: `--excludePrivate`,
-        excludeProtected: `--excludeProtected`,
-      },
-      rawArgs: parsed.raw,
-    })} src`;
+    const commands = [];
+
+    commands.push(
+      `${buildCommand('typedoc', {
+        defaultArgs: {
+          out: `--out ${path.resolve(process.cwd(), 'docs-auto')}`,
+          target: `--target es6`,
+          theme: `--theme minimal`,
+          mode: `--mode file`,
+          excludeExternals: `--excludeExternals`,
+          excludeNotExported: `--excludeNotExported`,
+          excludePrivate: `--excludePrivate`,
+          excludeProtected: `--excludeProtected`,
+        },
+        rawArgs: parsed.raw,
+      })} src`
+    );
 
     if (parsed.flags.verbose) {
-      this.log(`commands: '${command}'`);
+      this.log(`commands:`);
+      for (const command of commands) {
+        this.log(`    '${command}'`);
+      }
     }
 
-    shell.exec(command);
+    for (const command of commands) {
+      shell.exec(command);
+    }
   }
 }

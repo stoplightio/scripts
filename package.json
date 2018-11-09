@@ -100,7 +100,6 @@
     "semantic-release": "15.10.x",
     "shelljs": "0.8.x",
     "ts-jest": "23.10.x",
-    "ts-node": "7.0.x",
     "tslib": "1.9.x",
     "tslint-config-stoplight": "1.2.x",
     "typedoc": "0.13.x",
@@ -108,6 +107,7 @@
   },
   "devDependencies": {
     "@oclif/dev-cli": "1.19.x",
-    "@types/shelljs": "0.8.x"
+    "@types/shelljs": "0.8.x",
+    "ts-node": "7.0.x"
   }
 }

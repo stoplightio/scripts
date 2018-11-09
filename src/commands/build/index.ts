@@ -23,25 +23,32 @@ export default class BuildCommand extends Command {
   public async run() {
     const parsed = this.parse(BuildCommand);
 
-    const command1 = buildCommand('tsc', {
-      defaultArgs: {
-        project: `--project ${getConfigFilePath('tsconfig.build.json')}`,
-      },
-      rawArgs: parsed.raw,
-    });
+    const commands = [];
 
-    const command2 = `${buildCommand('ts-node', {
-      defaultArgs: {},
-      rawArgs: parsed.raw,
-    })} ${path.resolve(process.cwd(), 'node_modules', '@stoplight', 'scripts', 'dist', 'post-build-preparation')}`;
+    commands.push(`${buildCommand('rimraf')} dist`);
+
+    commands.push(
+      buildCommand('tsc', {
+        defaultArgs: {
+          project: `--project ${getConfigFilePath('tsconfig.build.json')}`,
+        },
+        rawArgs: parsed.raw,
+      })
+    );
+
+    commands.push(
+      `node ${path.resolve(process.cwd(), 'node_modules', '@stoplight', 'scripts', 'dist', 'post-build-preparation')}`
+    );
 
     if (parsed.flags.verbose) {
       this.log(`commands:`);
-      this.log(`    '${command1}'`);
-      this.log(`    '${command2}'`);
+      for (const command of commands) {
+        this.log(`    '${command}'`);
+      }
     }
 
-    shell.exec(command1);
-    shell.exec(command2);
+    for (const command of commands) {
+      shell.exec(command);
+    }
   }
 }

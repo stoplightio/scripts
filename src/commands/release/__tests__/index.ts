@@ -2,7 +2,7 @@ import * as shelljs from 'shelljs';
 
 import BuildCommand from '../index';
 
-describe('sl-scripts build', () => {
+describe('sl-scripts release', () => {
   let shellCommands: string[] = [];
 
   beforeEach(() => {
@@ -13,12 +13,8 @@ describe('sl-scripts build', () => {
 
   afterEach(() => jest.restoreAllMocks());
 
-  it('should use the tsc binary in node modules', async () => {
+  it('should use the semantic-release binary in node modules', async () => {
     await BuildCommand.run();
-    expect(shellCommands).toEqual([
-      '/mock/node_modules/.bin/rimraf dist',
-      '/mock/node_modules/.bin/tsc --project /mock/node_modules/@stoplight/scripts/tsconfig.build.json',
-      'node /mock/node_modules/@stoplight/scripts/dist/post-build-preparation',
-    ]);
+    expect(shellCommands).toEqual(['/mock/node_modules/.bin/semantic-release']);
   });
 });

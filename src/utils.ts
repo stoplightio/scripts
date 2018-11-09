@@ -4,7 +4,7 @@ import * as path from 'path';
 
 export const buildCommand = (
   baseCommand: string,
-  { defaultArgs = {}, rawArgs = [] }: { defaultArgs: any; rawArgs: ParsingToken[] }
+  { defaultArgs = {}, rawArgs = [] }: { defaultArgs?: any; rawArgs?: ParsingToken[] } = {}
 ) => {
   let command = path.resolve(process.cwd(), 'node_modules', '.bin', baseCommand);
 
