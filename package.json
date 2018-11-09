@@ -52,6 +52,15 @@
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "rm -rf dist && yarn build"
   },
+  "release": {
+    "pkgRoot": "./",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  },
   "lint-staged": {
     "src/*.ts": [
       "yarn format",
