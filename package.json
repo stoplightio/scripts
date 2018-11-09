@@ -21,6 +21,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json",
     "jest-preset.js",
+    "jest.config.js",
     "tsconfig.build.json",
     "tsconfig.json",
     "tslint.json"
