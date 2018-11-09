@@ -1,6 +1,6 @@
 # @stoplight/scripts
 
-[![License](https://img.shields.io/npm/l/@stoplight/scripts.svg)](https://github.com/stoplightio/scripts/blob/master/package.json)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2628d0fe95cf3abae711/maintainability)](https://codeclimate.com/github/stoplightio/scripts/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/2628d0fe95cf3abae711/test_coverage)](https://codeclimate.com/github/stoplightio/scripts/test_coverage)
 
 <!-- toc -->
 * [@stoplight/scripts](#stoplight-scripts)
