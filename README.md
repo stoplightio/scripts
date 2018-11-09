@@ -27,9 +27,27 @@ USAGE
 # Commands
 
 <!-- commands -->
+* [`sl-scripts build`](#sl-scripts-build)
 * [`sl-scripts help [COMMAND]`](#sl-scripts-help-command)
 * [`sl-scripts lint`](#sl-scripts-lint)
 * [`sl-scripts test [PATH]`](#sl-scripts-test-path)
+
+## `sl-scripts build`
+
+Builds src files.
+
+```
+USAGE
+  $ sl-scripts build
+
+OPTIONS
+  --verbose  moar logs
+
+EXAMPLE
+  $ sl-scripts build
+```
+
+_See code: [dist/commands/build.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build.js)_
 
 ## `sl-scripts help [COMMAND]`
 

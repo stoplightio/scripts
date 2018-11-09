@@ -1,8 +1,13 @@
+import * as path from 'path';
 const { echo } = require('shelljs');
 const { readFileSync, writeFileSync, copyFileSync } = require('fs');
 const _pick = require('lodash/pick');
 
-const pkg = JSON.parse(readFileSync('package.json') as any);
+const buildPath = (...args: any) => {
+  return path.resolve(process.cwd(), ...args);
+};
+
+const pkg = JSON.parse(readFileSync(buildPath('package.json')) as any);
 const releasePkg = _pick(pkg, [
   'name',
   'version',
@@ -25,9 +30,9 @@ releasePkg.main = 'index.js';
 releasePkg.typings = 'index.d.ts';
 
 echo('Copying extra files to dist folder.');
-writeFileSync('dist/package.json', JSON.stringify(releasePkg, null, 2));
-copyFileSync('README.md', 'dist/README.md');
-copyFileSync('LICENSE', 'dist/LICENSE');
+writeFileSync(buildPath('dist', 'package.json'), JSON.stringify(releasePkg, null, 2));
+copyFileSync(buildPath('README.md'), buildPath('dist', 'README.md'));
+copyFileSync(buildPath('LICENSE'), buildPath('dist', 'LICENSE'));
 echo('Files copied.');
 
 // TS needs to know that this is not beling loaded globally
