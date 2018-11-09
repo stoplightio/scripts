@@ -11,19 +11,11 @@
 
 # Usage
 
-<!-- usage -->
-```sh-session
-$ npm install -g @stoplight/scripts
-$ sl-scripts COMMAND
-running command...
-$ sl-scripts (-v|--version|version)
-@stoplight/scripts/0.0.0 darwin-x64 node-v8.12.0
-$ sl-scripts --help [COMMAND]
-USAGE
-  $ sl-scripts COMMAND
-...
+Create a new library:
+
+```bash
+npx @stoplight/scripts create:lib
 ```
-<!-- usagestop -->
 
 # Commands
 
