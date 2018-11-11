@@ -32,3 +32,12 @@ export const getConfigFilePath = (name: string): string => {
 export const buildPath = (...args: any) => {
   return path.resolve(process.cwd(), ...args);
 };
+
+export const sortObjKeys = (obj: object) => {
+  return Object.keys(obj)
+    .sort()
+    .reduce((accumulator, currentValue) => {
+      accumulator[currentValue] = obj[currentValue];
+      return accumulator;
+    }, {});
+};

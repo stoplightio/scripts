@@ -1,23 +1,19 @@
 module.exports = {
   rootDir: process.cwd(),
-  testEnvironment: "node",
+  testEnvironment: 'node',
   transform: {
-    ".(ts|tsx)": "ts-jest"
+    '.(ts|tsx)': 'ts-jest',
   },
-  testMatch: ["**/__tests__/*.(ts|js)?(x)"],
-  moduleFileExtensions: ["ts", "tsx", "js"],
-  coveragePathIgnorePatterns: [
-    "/node_modules/",
-    "/__tests__/",
-    "index.ts",
-    "types.ts"
-  ],
-  collectCoverageFrom: ["src/**/*.{js,ts}"],
+  // don't include the __tests__ folders in the templates
+  testMatch: ['<rootDir>/src/**/__tests__/*.(ts|js)?(x)'],
+  moduleFileExtensions: ['ts', 'tsx', 'js'],
+  coveragePathIgnorePatterns: ['/node_modules/', '/__tests__/', 'index.ts', 'types.ts'],
+  collectCoverageFrom: ['src/**/*.{js,ts}'],
   globals: {
-    "ts-jest": {
+    'ts-jest': {
       diagnostics: {
-        ignoreCodes: [151001]
-      }
-    }
-  }
+        ignoreCodes: [151001],
+      },
+    },
+  },
 };

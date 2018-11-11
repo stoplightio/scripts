@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "release": "sl-scripts release",
+    "release.dryRun": "sl-scripts release --dry-run --debug",
+    "release.docs": "sl-scripts release:docs"
+  }
+}

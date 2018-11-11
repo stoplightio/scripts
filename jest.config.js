@@ -1,1 +1,5 @@
-module.exports = require("./jest-preset");
+const config = require('./jest-preset');
+
+module.exports = {
+  ...config,
+};

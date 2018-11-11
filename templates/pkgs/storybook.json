@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "build.docs": "build-storybook -c .storybook -o docs-auto",
+    "storybook": "start-storybook -p 9001"
+  },
+  "devDependencies": {}
+}
