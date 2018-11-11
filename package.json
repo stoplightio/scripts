@@ -15,16 +15,17 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
+    "/.storybook",
     "/bin",
     "/dist",
-    "/scaffold",
+    "/templates",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json",
     "jest-preset.js",
     "jest.config.js",
-    "tsconfig.build.json",
     "tsconfig.json",
-    "tslint.json"
+    "tslint.json",
+    "!__tests__"
   ],
   "oclif": {
     "commands": "./dist/commands",
@@ -41,13 +42,13 @@
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "tsc -p ./tsconfig.build.json && oclif-dev manifest && oclif-dev readme",
+    "build": "tsc && oclif-dev manifest && oclif-dev readme",
     "test": "jest",
     "test.watch": "jest --watch",
     "test.prod": "yarn lint && yarn test --coverage --no-cache",
     "test.update": "yarn test --updateSnapshot",
     "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts'",
-    "format": "yarn lint --fix",
+    "lint.fix": "yarn lint --fix",
     "commit": "git-cz",
     "release": "semantic-release",
     "postpack": "rm -f oclif.manifest.json",
@@ -64,7 +65,7 @@
   },
   "lint-staged": {
     "src/*.ts": [
-      "yarn format",
+      "yarn lint.fix",
       "git add"
     ]
   },
@@ -84,7 +85,13 @@
       "@commitlint/config-conventional"
     ]
   },
+  "optionalDependencies": {
+    "react": "16.x.x",
+    "react-dom": "16.x.x",
+    "webpack": "4.x.x"
+  },
   "dependencies": {
+    "@babel/core": "7.1.x",
     "@commitlint/cli": "7.2.x",
     "@commitlint/config-conventional": "7.1.x",
     "@oclif/command": "1.5.x",
@@ -93,10 +100,25 @@
     "@semantic-release/commit-analyzer": "6.1.x",
     "@semantic-release/git": "7.0.x",
     "@semantic-release/github": "5.2.x",
-    "@semantic-release/npm": "5.0.x",
+    "@semantic-release/npm": "5.1.x",
     "@semantic-release/release-notes-generator": "7.1.x",
+    "@storybook/addon-actions": "4.0.4",
+    "@storybook/addon-info": "4.0.4",
+    "@storybook/addon-knobs": "^4.0.4",
+    "@storybook/addon-links": "4.0.4",
+    "@storybook/addon-options": "4.0.4",
+    "@storybook/addons": "4.0.4",
+    "@storybook/core": "4.0.4",
+    "@storybook/react": "4.0.4",
     "@types/jest": "23.3.x",
     "@types/node": "10.12.x",
+    "@types/storybook__addon-actions": "3.4.1",
+    "@types/storybook__addon-info": "3.4.2",
+    "@types/storybook__addon-knobs": "^3.4.1",
+    "@types/storybook__addon-links": "3.3.2",
+    "@types/storybook__addon-options": "3.2.2",
+    "@types/storybook__react": "4.0.0",
+    "babel-loader": "8.0.x",
     "cli-ux": "4.9.x",
     "commitizen": "3.0.x",
     "cz-conventional-changelog": "2.1.x",
@@ -104,19 +126,24 @@
     "inquirer": "6.2.x",
     "jest": "23.6.x",
     "lint-staged": "8.0.x",
+    "lodash": "4.x.x",
+    "react-docgen-typescript-loader": "3.0.x",
     "rimraf": "2.6.x",
     "semantic-release": "15.10.x",
     "shelljs": "0.8.x",
     "ts-jest": "23.10.x",
+    "ts-loader": "5.3.x",
     "tslib": "1.9.x",
     "tslint-config-stoplight": "1.2.x",
     "typedoc": "0.13.x",
-    "typescript": "3.1.x"
+    "typescript-plugin-styled-components": "1.0.x"
   },
   "devDependencies": {
     "@oclif/dev-cli": "1.19.x",
     "@types/inquirer": "0.0.x",
+    "@types/lodash": "4.x.x",
     "@types/shelljs": "0.8.x",
-    "ts-node": "7.0.x"
+    "ts-node": "7.0.x",
+    "typescript": "3.1.x"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "peerDependencies": {
+    "react": "16.x.x"
+  },
+  "dependencies": {
+    "@stoplight/ui-kit": "1.x.x"
+  },
+  "devDependencies": {
+    "@types/react": "16.x.x",
+    "@types/react-dom": "16.x.x",
+    "react": "16.x.x",
+    "react-dom": "16.x.x"
+  }
+}

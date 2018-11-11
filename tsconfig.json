@@ -1,5 +1,6 @@
 {
-  "include": ["./src"],
+  "include": ["src"],
+  "exclude": ["**/__tests__/**"],
   "compilerOptions": {
     "moduleResolution": "node",
     "target": "es6",
@@ -21,6 +22,8 @@
     "resolveJsonModule": true,
     "outDir": "dist",
     "sourceMap": true,
-    "declaration": true
+    "declaration": true,
+    "removeComments": true,
+    "jsx": "react"
   }
 }

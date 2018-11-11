@@ -45,7 +45,7 @@ EXAMPLES
   $ sl-scripts build:tsdoc
 ```
 
-_See code: [dist/commands/build/index.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/index.js)_
+_See code: [dist/commands/build/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/index.ts)_
 
 ## `sl-scripts build:tsdoc`
 
@@ -62,7 +62,7 @@ EXAMPLE
   $ sl-scripts build:tsdoc
 ```
 
-_See code: [dist/commands/build/tsdoc.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/tsdoc.js)_
+_See code: [dist/commands/build/tsdoc.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/tsdoc.ts)_
 
 ## `sl-scripts create:lib`
 
@@ -76,7 +76,7 @@ EXAMPLE
   $ sl-scripts create:lib
 ```
 
-_See code: [dist/commands/create/lib.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/create/lib.js)_
+_See code: [dist/commands/create/lib.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/create/lib.ts)_
 
 ## `sl-scripts help [COMMAND]`
 
@@ -111,7 +111,7 @@ EXAMPLES
   $ sl-scripts lint src/**/*
 ```
 
-_See code: [dist/commands/lint.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/lint.js)_
+_See code: [dist/commands/lint.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/lint.ts)_
 
 ## `sl-scripts release`
 
@@ -130,7 +130,7 @@ EXAMPLES
   $ sl-scripts release:docs
 ```
 
-_See code: [dist/commands/release/index.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/index.js)_
+_See code: [dist/commands/release/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/index.ts)_
 
 ## `sl-scripts release:docs`
 
@@ -148,7 +148,7 @@ EXAMPLE
   $ sl-scripts release:docs
 ```
 
-_See code: [dist/commands/release/docs.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/docs.js)_
+_See code: [dist/commands/release/docs.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/docs.ts)_
 
 ## `sl-scripts test [PATH]`
 
@@ -170,7 +170,7 @@ EXAMPLES
   $ sl-scripts test src/utils
 ```
 
-_See code: [dist/commands/test.js](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/test.js)_
+_See code: [dist/commands/test.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/test.ts)_
 <!-- commandsstop -->
 
 # Overriding Configs
