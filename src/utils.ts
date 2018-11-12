@@ -4,12 +4,12 @@ import * as path from 'path';
 
 export const buildCommand = (
   baseCommand: string,
-  { defaultArgs = {}, rawArgs = [] }: { defaultArgs?: any; rawArgs?: ParsingToken[] } = {}
+  { defaultArgs = {}, rawArgs = [], flags = [] }: { defaultArgs?: any; rawArgs?: ParsingToken[]; flags?: string[] } = {}
 ) => {
   let command = path.resolve(process.cwd(), 'node_modules', '.bin', baseCommand);
 
   for (const arg of rawArgs) {
-    command += ` ${arg.input}`;
+    if (!flags.includes(arg.input.substring(2))) command += ` ${arg.input}`;
   }
 
   for (const arg in defaultArgs) {

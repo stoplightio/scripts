@@ -10,14 +10,7 @@ export default class LintCommand extends Command {
 
   public static examples = [`$ sl-scripts lint`, `$ sl-scripts lint src/**/*`];
 
-  public static args = [
-    // TODO: support the path arg
-    // {
-    //   name: 'path',
-    //   description: 'a glob that describes the files to lint lint',
-    //   required: false,
-    // },
-  ];
+  public static args = [];
 
   public static flags = {
     verbose: flagHelpers.boolean({
@@ -36,9 +29,12 @@ export default class LintCommand extends Command {
         config: `--config ${getConfigFilePath('tslint.json')}`,
       },
       rawArgs: parsed.raw,
+      flags: Object.keys(LintCommand.flags),
     });
 
-    command += ' "src/**/*.ts"';
+    if (parsed.argv.length === 0) {
+      command += ' "src/**/*.ts"';
+    }
 
     if (parsed.flags.verbose) {
       this.log(`command: '${command}'`);
