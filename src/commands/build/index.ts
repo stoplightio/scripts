@@ -38,6 +38,7 @@ export default class BuildCommand extends Command {
           project: `--project ${getConfigFilePath('tsconfig.json')}`,
         },
         rawArgs: parsed.raw,
+        flags: Object.keys(BuildCommand.flags),
       })
     );
 

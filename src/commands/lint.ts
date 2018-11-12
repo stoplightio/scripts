@@ -11,7 +11,7 @@ export default class LintCommand extends Command {
 
   public static examples = [`$ sl-scripts lint`, `$ sl-scripts lint src/**/*`];
 
-  public static args = [{ name: 'path' }];
+  public static args = [];
 
   public static flags = {
     verbose: flagHelpers.boolean({
@@ -30,6 +30,7 @@ export default class LintCommand extends Command {
         config: `--config ${getConfigFilePath('tslint.json')}`,
       },
       rawArgs: parsed.raw,
+      flags: Object.keys(LintCommand.flags),
     });
 
     if (!parsed.args.path || !path.parse(parsed.args.path).dir) {

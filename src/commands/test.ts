@@ -39,6 +39,7 @@ export default class TestCommand extends Command {
         config: `--config=${getConfigFilePath('jest.config.js')}`,
       },
       rawArgs: parsed.raw,
+      flags: Object.keys(TestCommand.flags),
     });
 
     if (parsed.flags.verbose) {
