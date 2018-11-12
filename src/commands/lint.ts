@@ -1,4 +1,5 @@
 import { Command, flags as flagHelpers } from '@oclif/command';
+import path = require('path');
 import * as shell from 'shelljs';
 
 import { buildCommand, getConfigFilePath } from '../utils';
@@ -10,14 +11,7 @@ export default class LintCommand extends Command {
 
   public static examples = [`$ sl-scripts lint`, `$ sl-scripts lint src/**/*`];
 
-  public static args = [
-    // TODO: support the path arg
-    // {
-    //   name: 'path',
-    //   description: 'a glob that describes the files to lint lint',
-    //   required: false,
-    // },
-  ];
+  public static args = [{ name: 'path' }];
 
   public static flags = {
     verbose: flagHelpers.boolean({
@@ -37,6 +31,10 @@ export default class LintCommand extends Command {
       },
       rawArgs: parsed.raw,
     });
+
+    if (!!!parsed.args['path'] || !!!path.parse(parsed.args['path']).dir) {
+      command += ' "src/**/*.ts"';
+    }
 
     if (parsed.flags.verbose) {
       this.log(`command: '${command}'`);

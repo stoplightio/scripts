@@ -22,10 +22,10 @@ describe('sl-scripts lint', () => {
   });
 
   // TODO
-  it.skip('should support passing in a path', async () => {
+  it('should support passing in a path', async () => {
     await LintCommand.run(['custom/**']);
     expect(shellCommands).toEqual([
-      '/mock/node_modules/.bin/tslint --format codeFrame --project /mock/node_modules/@stoplight/scripts/tsconfig.json "custom/**"',
+      '/mock/node_modules/.bin/tslint custom/** --format codeFrame --project /mock/node_modules/@stoplight/scripts/tsconfig.json',
     ]);
   });
 
