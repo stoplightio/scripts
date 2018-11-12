@@ -32,7 +32,7 @@ export default class LintCommand extends Command {
       rawArgs: parsed.raw,
     });
 
-    if (!!!parsed.args['path'] || !!!path.parse(parsed.args['path']).dir) {
+    if (!parsed.args['path'] || !path.parse(parsed.args['path']).dir) {
       command += ' "src/**/*.ts"';
     }
 
