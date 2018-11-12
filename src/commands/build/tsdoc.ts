@@ -38,7 +38,7 @@ export default class BuildTsdocCommand extends Command {
           excludeProtected: `--excludeProtected`,
         },
         rawArgs: parsed.raw,
-        flags: Object.keys(BuildTsdocCommand.flags)
+        flags: Object.keys(BuildTsdocCommand.flags),
       })} src`
     );
 
