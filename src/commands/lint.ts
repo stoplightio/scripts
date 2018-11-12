@@ -21,7 +21,7 @@ export default class LintCommand extends Command {
   };
 
   public async run() {
-    const parsed = this.parse(LintCommand);
+    const parsed = this.parse<{ verbose: boolean }, { path: string }>(LintCommand);
 
     let command = buildCommand('tslint', {
       defaultArgs: {
@@ -32,7 +32,7 @@ export default class LintCommand extends Command {
       rawArgs: parsed.raw,
     });
 
-    if (!parsed.args['path'] || !path.parse(parsed.args['path']).dir) {
+    if (!parsed.args.path || !path.parse(parsed.args.path).dir) {
       command += ' "src/**/*.ts"';
     }
 
