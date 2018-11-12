@@ -20,7 +20,7 @@ export default class LintCommand extends Command {
   };
 
   public async run() {
-    const parsed = this.parse<{ verbose: boolean }, { path: string }>(LintCommand);
+    const parsed = this.parse(LintCommand);
 
     let command = buildCommand('tslint', {
       defaultArgs: {
