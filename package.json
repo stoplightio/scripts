@@ -102,7 +102,6 @@
     "@semantic-release/github": "5.2.x",
     "@semantic-release/npm": "5.1.x",
     "@semantic-release/release-notes-generator": "7.1.x",
-    "@stoplight/scripts": "https://github.com/stoplightio/scripts.git#fix/do-not-provide-source-files",
     "@storybook/addon-actions": "4.0.4",
     "@storybook/addon-info": "4.0.4",
     "@storybook/addon-knobs": "^4.0.4",

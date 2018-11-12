@@ -21,7 +21,6 @@ describe('sl-scripts lint', () => {
     ]);
   });
 
-  // TODO
   it('should support passing in a path', async () => {
     await LintCommand.run(['custom/**']);
     expect(shellCommands).toEqual([
