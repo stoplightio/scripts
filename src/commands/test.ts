@@ -19,11 +19,6 @@ export default class TestCommand extends Command {
   ];
 
   public static flags = {
-    watch: flagHelpers.boolean({
-      char: 'w',
-      description: 'run tests in watch mode',
-      required: false,
-    }),
     verbose: flagHelpers.boolean({
       description: 'moar logs',
       required: false,

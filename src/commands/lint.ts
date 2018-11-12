@@ -1,5 +1,4 @@
 import { Command, flags as flagHelpers } from '@oclif/command';
-import path = require('path');
 import * as shell from 'shelljs';
 
 import { buildCommand, getConfigFilePath } from '../utils';
@@ -33,7 +32,7 @@ export default class LintCommand extends Command {
       flags: Object.keys(LintCommand.flags),
     });
 
-    if (!parsed.args.path || !path.parse(parsed.args.path).dir) {
+    if (parsed.argv.length === 0) {
       command += ' "src/**/*.ts"';
     }
 
