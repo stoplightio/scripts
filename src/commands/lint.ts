@@ -38,8 +38,6 @@ export default class LintCommand extends Command {
       rawArgs: parsed.raw,
     });
 
-    command += ' "src/**/*.ts"';
-
     if (parsed.flags.verbose) {
       this.log(`command: '${command}'`);
     }
