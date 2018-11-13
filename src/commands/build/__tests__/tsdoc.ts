@@ -1,5 +1,4 @@
-import * as shelljs from 'shelljs';
-
+import * as utils from '../../../utils';
 import BuildTsdocCommand from '../tsdoc';
 
 describe('sl-scripts build:tsdoc', () => {
@@ -7,7 +6,7 @@ describe('sl-scripts build:tsdoc', () => {
 
   beforeEach(() => {
     shellCommands = [];
-    jest.spyOn(shelljs, 'exec').mockImplementation(val => shellCommands.push(val));
+    jest.spyOn(utils, 'runCommand').mockImplementation(val => shellCommands.push(val));
     jest.spyOn(process, 'cwd').mockImplementation(() => '/mock');
   });
 

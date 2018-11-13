@@ -21,6 +21,7 @@
     "/templates",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json",
+    "release.js",
     "jest-preset.js",
     "jest.config.js",
     "tsconfig.json",
@@ -55,7 +56,6 @@
     "prepack": "rm -rf dist && yarn build"
   },
   "release": {
-    "pkgRoot": "./",
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",

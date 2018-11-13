@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import * as shell from 'shelljs';
 import * as url from 'url';
 
-import { buildPath } from '../../utils';
+import { buildPath, runCommand } from '../../utils';
 
 export default class ReleaseDocsCommand extends Command {
   public static description = 'Push built docs to github pages.';
@@ -70,7 +70,7 @@ export default class ReleaseDocsCommand extends Command {
 
     if (!parsed.flags['dry-run']) {
       for (const command of commands) {
-        shell.exec(command);
+        runCommand(command);
       }
     }
 

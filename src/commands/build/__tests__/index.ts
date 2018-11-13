@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import * as shelljs from 'shelljs';
 
+import * as utils from '../../../utils';
 import BuildCommand from '../index';
 
 const cwd = () => path.resolve(__dirname, 'fixtures');
@@ -14,7 +14,7 @@ describe.skip('sl-scripts build', () => {
 
   beforeEach(() => {
     shellCommands = [];
-    jest.spyOn(shelljs, 'exec').mockImplementation(val => shellCommands.push(val));
+    jest.spyOn(utils, 'runCommand').mockImplementation(val => shellCommands.push(val));
     jest.spyOn(process, 'cwd').mockImplementation(cwd);
     jest.spyOn(fs, 'writeFileSync').mockImplementation((p, val) => {
       pkgFilePath = p;

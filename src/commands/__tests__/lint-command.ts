@@ -1,6 +1,6 @@
 import * as fs from 'fs';
-import * as shelljs from 'shelljs';
 
+import * as utils from '../../utils';
 import LintCommand from '../lint';
 
 describe('sl-scripts lint', () => {
@@ -8,7 +8,7 @@ describe('sl-scripts lint', () => {
 
   beforeEach(() => {
     shellCommands = [];
-    jest.spyOn(shelljs, 'exec').mockImplementation(val => shellCommands.push(val));
+    jest.spyOn(utils, 'runCommand').mockImplementation(val => shellCommands.push(val));
     jest.spyOn(process, 'cwd').mockImplementation(() => '/mock');
   });
 
@@ -34,7 +34,6 @@ describe('sl-scripts lint', () => {
       '/mock/node_modules/.bin/tslint f1.ts f2.ts --format codeFrame --project /mock/node_modules/@stoplight/scripts/tsconfig.json',
     ]);
   });
-
 
   it('should use user defined jest config file if present', async () => {
     jest.spyOn(fs, 'existsSync').mockImplementation(() => true);

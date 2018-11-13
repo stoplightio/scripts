@@ -1,6 +1,6 @@
 import * as fs from 'fs';
-import * as shelljs from 'shelljs';
 
+import * as utils from '../../utils';
 import TestCommand from '../test';
 
 describe('sl-scripts test', () => {
@@ -8,7 +8,7 @@ describe('sl-scripts test', () => {
 
   beforeEach(() => {
     shellCommands = [];
-    jest.spyOn(shelljs, 'exec').mockImplementation(val => shellCommands.push(val));
+    jest.spyOn(utils, 'runCommand').mockImplementation(val => shellCommands.push(val));
     jest.spyOn(process, 'cwd').mockImplementation(() => '/mock');
   });
 

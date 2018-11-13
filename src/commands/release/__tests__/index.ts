@@ -1,6 +1,6 @@
 import * as path from 'path';
-import * as shelljs from 'shelljs';
 
+import * as utils from '../../../utils';
 import BuildCommand from '../index';
 
 const cwd = () => path.resolve(__dirname, 'fixtures');
@@ -10,7 +10,7 @@ describe('sl-scripts release', () => {
 
   beforeEach(() => {
     shellCommands = [];
-    jest.spyOn(shelljs, 'exec').mockImplementation(val => shellCommands.push(val));
+    jest.spyOn(utils, 'runCommand').mockImplementation(val => shellCommands.push(val));
     jest.spyOn(process, 'cwd').mockImplementation(cwd);
   });
 

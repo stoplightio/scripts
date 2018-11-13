@@ -1,9 +1,8 @@
 import { Command, flags as flagHelpers } from '@oclif/command';
 import cli from 'cli-ux';
 import * as fs from 'fs';
-import * as shell from 'shelljs';
 
-import { buildCommand, buildPath, getConfigFilePath } from '../../utils';
+import { buildCommand, buildPath, getConfigFilePath, runCommand } from '../../utils';
 
 const _pick = require('lodash/pick');
 
@@ -50,7 +49,7 @@ export default class BuildCommand extends Command {
     }
 
     for (const command of commands) {
-      shell.exec(command);
+      runCommand(command);
     }
 
     cli.action.stop();
