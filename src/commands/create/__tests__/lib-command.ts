@@ -91,6 +91,9 @@ describe('sl-scripts create:lib', () => {
             commitlint: {
               extends: ['@commitlint/config-conventional'],
             },
+            release: {
+              extends: '@stoplight/scripts/release',
+            },
           },
           null,
           2
@@ -176,6 +179,9 @@ describe('sl-scripts create:lib', () => {
             },
             commitlint: {
               extends: ['@commitlint/config-conventional'],
+            },
+            release: {
+              extends: '@stoplight/scripts/release',
             },
           },
           null,
