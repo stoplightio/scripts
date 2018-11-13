@@ -1,8 +1,7 @@
 import { Command, flags as flagHelpers } from '@oclif/command';
 import * as path from 'path';
-import * as shell from 'shelljs';
 
-import { buildCommand } from '../../utils';
+import { buildCommand, runCommand } from '../../utils';
 
 export default class BuildTsdocCommand extends Command {
   public static strict = false;
@@ -50,7 +49,7 @@ export default class BuildTsdocCommand extends Command {
     }
 
     for (const command of commands) {
-      shell.exec(command);
+      runCommand(command);
     }
   }
 }

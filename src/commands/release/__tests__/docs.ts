@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as shelljs from 'shelljs';
 
+import * as utils from '../../../utils';
 import BuildTsdocCommand from '../docs';
 
 const cwd = () => path.resolve(__dirname, 'fixtures');
@@ -12,7 +13,7 @@ describe('sl-scripts release:docs', () => {
     shellCommands = [];
     jest.spyOn(shelljs, 'cd').mockImplementation(val => shellCommands.push(`cd ${val}`));
     jest.spyOn(shelljs, 'touch').mockImplementation(val => shellCommands.push(`touch ${val}`));
-    jest.spyOn(shelljs, 'exec').mockImplementation(val => shellCommands.push(val));
+    jest.spyOn(utils, 'runCommand').mockImplementation(val => shellCommands.push(val));
     jest.spyOn(process, 'cwd').mockImplementation(cwd);
   });
 

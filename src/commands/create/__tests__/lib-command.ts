@@ -1,5 +1,4 @@
-import * as shelljs from 'shelljs';
-
+import * as utils from '../../../utils';
 import LibCommand, { IResponses } from '../lib';
 
 describe('sl-scripts create:lib', () => {
@@ -15,7 +14,7 @@ describe('sl-scripts create:lib', () => {
       // @ts-ignore
       pjson: '',
     });
-    jest.spyOn(shelljs, 'exec').mockImplementation(val => shellCommands.push(val));
+    jest.spyOn(utils, 'runCommand').mockImplementation(val => shellCommands.push(val));
     jest.spyOn(process, 'cwd').mockImplementation(() => '/mock');
   });
 
@@ -76,7 +75,7 @@ describe('sl-scripts create:lib', () => {
               typescript: '3.1.6',
             },
             'lint-staged': {
-              'src/*.ts': ['yarn lint.fix', 'git add'],
+              '*.ts': ['yarn lint.fix', 'git add'],
             },
             husky: {
               hooks: {
@@ -162,7 +161,7 @@ describe('sl-scripts create:lib', () => {
               typescript: '3.1.6',
             },
             'lint-staged': {
-              'src/*.ts': ['yarn lint.fix', 'git add'],
+              '*.ts': ['yarn lint.fix', 'git add'],
             },
             husky: {
               hooks: {

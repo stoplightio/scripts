@@ -1,7 +1,6 @@
 import { Command, flags as flagHelpers } from '@oclif/command';
-import * as shell from 'shelljs';
 
-import { buildCommand, getConfigFilePath } from '../utils';
+import { buildCommand, getConfigFilePath, runCommand } from '../utils';
 
 export default class TestCommand extends Command {
   public static strict = false;
@@ -41,6 +40,6 @@ export default class TestCommand extends Command {
       this.log(`command: '${command}'`);
     }
 
-    shell.exec(command);
+    runCommand(command);
   }
 }

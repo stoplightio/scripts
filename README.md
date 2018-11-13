@@ -122,7 +122,6 @@ USAGE
   $ sl-scripts release
 
 OPTIONS
-  --dry-run  run the release process but do not publish
   --verbose  moar logs
 
 EXAMPLES
@@ -162,8 +161,7 @@ ARGUMENTS
   PATH  only run tests in the target directory
 
 OPTIONS
-  -w, --watch  run tests in watch mode
-  --verbose    moar logs
+  --verbose  moar logs
 
 EXAMPLES
   $ sl-scripts test

@@ -1,4 +1,5 @@
 import { ParsingToken } from '@oclif/parser/lib/parse';
+import { execSync } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -18,6 +19,22 @@ export const buildCommand = (
   }
 
   return command;
+};
+
+export const runCommand = (command: string, { handleError = true } = {}) => {
+  try {
+    return execSync(command, {
+      stdio: 'inherit',
+      cwd: process.cwd(),
+      env: { ...process.env },
+    });
+  } catch (error) {
+    if (handleError) {
+      return process.exit(error.status);
+    } else {
+      throw error;
+    }
+  }
 };
 
 export const getConfigFilePath = (name: string): string => {
