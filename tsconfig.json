@@ -1,6 +1,6 @@
 {
   "include": ["src"],
-  "exclude": ["**/__tests__/**"],
+  "exclude": ["node_modules", "**/__tests__/**"],
   "compilerOptions": {
     "moduleResolution": "node",
     "target": "es6",
@@ -24,6 +24,7 @@
     "sourceMap": true,
     "declaration": true,
     "removeComments": true,
-    "jsx": "react"
+    "jsx": "react",
+    "skipLibCheck": true
   }
 }
