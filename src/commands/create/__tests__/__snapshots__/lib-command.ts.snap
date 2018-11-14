@@ -53,7 +53,7 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
     \\"typescript\\": \\"3.1.6\\"
   },
   \\"lint-staged\\": {
-    \\"*.ts\\": [
+    \\"*.{ts,tsx}$\\": [
       \\"yarn lint.fix\\",
       \\"git add\\"
     ]
@@ -124,7 +124,7 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
     \\"typescript\\": \\"3.1.6\\"
   },
   \\"lint-staged\\": {
-    \\"*.ts\\": [
+    \\"*.{ts,tsx}$\\": [
       \\"yarn lint.fix\\",
       \\"git add\\"
     ]
