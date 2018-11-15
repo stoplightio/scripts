@@ -34,7 +34,7 @@
     "typescript": "3.1.6"
   },
   "lint-staged": {
-    "*.ts": ["yarn lint.fix", "git add"]
+    "*.{ts,tsx}$": ["yarn lint.fix", "git add"]
   },
   "husky": {
     "hooks": {
