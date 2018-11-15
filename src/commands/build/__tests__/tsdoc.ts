@@ -15,7 +15,7 @@ describe('sl-scripts build:tsdoc', () => {
   it('should use the typedoc binary in node modules', async () => {
     await BuildTsdocCommand.run();
     expect(shellCommands).toEqual([
-      '/mock/node_modules/.bin/typedoc --out /mock/docs-auto --target es6 --theme minimal --mode file --excludeExternals --excludeNotExported --excludePrivate --excludeProtected src',
+      '/mock/node_modules/.bin/typedoc --out /mock/docs-auto --target es6 --theme minimal --mode modules --excludeNotExported --excludePrivate --excludeProtected src',
     ]);
   });
 });
