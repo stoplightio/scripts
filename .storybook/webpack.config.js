@@ -6,7 +6,7 @@ const styledComponentsTransformer = createStyledComponentsTransformer();
 module.exports = (baseConfig, env, config) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
-    include: [path.resolve(process.cwd(), 'src'), path.resolve(process.cwd(), 'stories')],
+    include: [path.resolve(process.cwd(), 'src')],
     use: [
       {
         loader: require.resolve('ts-loader'),
