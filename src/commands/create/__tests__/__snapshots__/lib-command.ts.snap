@@ -18,7 +18,8 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   \\"main\\": \\"src/index.ts\\",
   \\"files\\": [
     \\"**/*\\",
-    \\"!__tests__\\"
+    \\"!__tests__\\",
+    \\"!__stories__\\"
   ],
   \\"engines\\": {
     \\"node\\": \\">=8.3.0\\"
@@ -98,7 +99,8 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   \\"main\\": \\"src/index.ts\\",
   \\"files\\": [
     \\"**/*\\",
-    \\"!__tests__\\"
+    \\"!__tests__\\",
+    \\"!__stories__\\"
   ],
   \\"engines\\": {
     \\"node\\": \\">=8.3.0\\"
