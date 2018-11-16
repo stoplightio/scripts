@@ -64,7 +64,7 @@
     ]
   },
   "lint-staged": {
-    "*.ts": [
+    "*.{ts,tsx}$": [
       "yarn lint.fix",
       "git add"
     ]
@@ -102,14 +102,14 @@
     "@semantic-release/github": "5.2.x",
     "@semantic-release/npm": "5.1.x",
     "@semantic-release/release-notes-generator": "7.1.x",
-    "@storybook/addon-actions": "4.0.4",
-    "@storybook/addon-info": "4.0.4",
-    "@storybook/addon-knobs": "^4.0.4",
-    "@storybook/addon-links": "4.0.4",
-    "@storybook/addon-options": "4.0.4",
-    "@storybook/addons": "4.0.4",
-    "@storybook/core": "4.0.4",
-    "@storybook/react": "4.0.4",
+    "@storybook/addon-actions": "4.0.6",
+    "@storybook/addon-info": "4.0.6",
+    "@storybook/addon-knobs": "4.0.6",
+    "@storybook/addon-links": "4.0.6",
+    "@storybook/addon-options": "4.0.6",
+    "@storybook/addons": "4.0.6",
+    "@storybook/core": "4.0.6",
+    "@storybook/react": "4.0.6",
     "@types/jest": "23.3.x",
     "@types/node": "10.12.x",
     "@types/storybook__addon-actions": "3.4.1",
@@ -129,11 +129,11 @@
     "lodash": "4.x.x",
     "react-docgen-typescript-loader": "3.0.x",
     "rimraf": "2.6.x",
-    "semantic-release": "15.10.x",
+    "semantic-release": "15.11.x",
     "shelljs": "0.8.x",
     "ts-jest": "23.10.x",
     "ts-loader": "5.3.x",
-    "tslib": "1.9.x",
+    "tslib": "1.9.3",
     "tslint-config-stoplight": "1.2.x",
     "typedoc": "0.13.x",
     "typescript-plugin-styled-components": "1.0.x"
