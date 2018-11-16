@@ -98,7 +98,7 @@ export default class CreateLibCommand extends Command {
   }
 
   public writeIgnore(targetDir: string) {
-    shell.cp('-Rfn', path.resolve(this.templateDir(), 'common', '.gitignore'), targetDir);
+    shell.cp('-Rfn', path.resolve(this.templateDir(), 'gitignore'), path.resolve(targetDir, '.gitignore'));
   }
 
   public writeLicense(targetDir: string, responses: IResponses) {
