@@ -85,10 +85,10 @@
       "@commitlint/config-conventional"
     ]
   },
-  "optionalDependencies": {
-    "react": "16.x.x",
-    "react-dom": "16.x.x",
-    "webpack": "4.x.x"
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16",
+    "webpack": ">=4"
   },
   "dependencies": {
     "@babel/core": "7.1.x",
