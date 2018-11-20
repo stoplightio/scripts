@@ -163,8 +163,8 @@ export default class CreateLibCommand extends Command {
       // react uses storybook
       merge(pkg, JSON.parse(fs.readFileSync(path.resolve(this.templateDir(), 'pkgs', 'storybook.json')) as any));
     } else {
-      // plain ts library uses tsdoc
-      merge(pkg, JSON.parse(fs.readFileSync(path.resolve(this.templateDir(), 'pkgs', 'tsdoc.json')) as any));
+      // plain ts library uses typedoc
+      merge(pkg, JSON.parse(fs.readFileSync(path.resolve(this.templateDir(), 'pkgs', 'typedoc.json')) as any));
     }
 
     // sort sections
@@ -189,6 +189,23 @@ export default class CreateLibCommand extends Command {
 
     if (responses.repository) {
       readme = readme.replace(new RegExp('<!-- GIT_REPO -->', 'g'), responses.repository);
+    }
+
+    if (responses.repository) {
+      // Repo will look something like: `https://github.com/stoplightio/library`
+      const repoParts = responses.repository.split('/');
+
+      // Resulting Github pages URL will look like: `https://stoplightio.github.io/library`
+      const docsUrl = `https://${repoParts[repoParts.length - 2]}.github.io/${repoParts[repoParts.length - 1]}`;
+
+      if (responses.react) {
+        readme = readme.replace(
+          new RegExp('<!-- DOCS_LINK -->', 'g'),
+          `Explore the components: [Storybook](${docsUrl})`
+        );
+      } else {
+        readme = readme.replace(new RegExp('<!-- DOCS_LINK -->', 'g'), `Explore the interfaces: [TSDoc](${docsUrl})`);
+      }
     }
 
     fs.writeFileSync(readmePath, readme);
