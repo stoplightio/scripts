@@ -4,7 +4,7 @@
 
 <!-- SUMMARY -->
 
-- Explore the interfaces: [TSDoc](<!-- GIT_REPO -->)
+- <!-- DOCS_LINK -->
 - View the changelog: [Releases](<!-- GIT_REPO -->/releases)
 
 ### Features

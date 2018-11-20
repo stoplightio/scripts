@@ -1,9 +1,9 @@
 import { Command, flags as flagHelpers } from '@oclif/command';
 import * as path from 'path';
 
-import { buildCommand, runCommand } from '../../utils';
+import { buildCommand, getConfigFilePath, runCommand } from '../../utils';
 
-export default class BuildTsdocCommand extends Command {
+export default class BuildTypedocCommand extends Command {
   public static strict = false;
 
   public static description = 'Builds tsdoc files. Output into docs-auto folder.';
@@ -20,7 +20,7 @@ export default class BuildTsdocCommand extends Command {
   };
 
   public async run() {
-    const parsed = this.parse(BuildTsdocCommand);
+    const parsed = this.parse(BuildTypedocCommand);
 
     const commands = [];
 
@@ -30,14 +30,16 @@ export default class BuildTsdocCommand extends Command {
           out: `--out ${path.resolve(process.cwd(), 'docs-auto')}`,
           target: `--target es6`,
           theme: `--theme minimal`,
-          mode: `--mode modules`,
+          mode: `--mode file`,
           excludeNotExported: `--excludeNotExported`,
           excludePrivate: `--excludePrivate`,
           excludeProtected: `--excludeProtected`,
+          hideGenerator: `--hideGenerator`,
+          tsconfig: `--tsconfig ${getConfigFilePath('tsconfig.build.json')}`,
         },
         rawArgs: parsed.raw,
-        flags: Object.keys(BuildTsdocCommand.flags),
-      })} src`
+        flags: Object.keys(BuildTypedocCommand.flags),
+      })}`
     );
 
     if (parsed.flags.verbose) {

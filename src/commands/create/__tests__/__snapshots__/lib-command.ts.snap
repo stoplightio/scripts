@@ -17,9 +17,7 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   \\"license\\": \\"Apache-2.0\\",
   \\"main\\": \\"src/index.ts\\",
   \\"files\\": [
-    \\"**/*\\",
-    \\"!__tests__\\",
-    \\"!__stories__\\"
+    \\"**/*\\"
   ],
   \\"engines\\": {
     \\"node\\": \\">=8.3.0\\"
@@ -98,16 +96,14 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   \\"license\\": \\"Apache-2.0\\",
   \\"main\\": \\"src/index.ts\\",
   \\"files\\": [
-    \\"**/*\\",
-    \\"!__tests__\\",
-    \\"!__stories__\\"
+    \\"**/*\\"
   ],
   \\"engines\\": {
     \\"node\\": \\">=8.3.0\\"
   },
   \\"scripts\\": {
     \\"build\\": \\"sl-scripts build\\",
-    \\"build.docs\\": \\"sl-scripts build:tsdoc\\",
+    \\"build.docs\\": \\"sl-scripts build:typedoc\\",
     \\"commit\\": \\"git-cz\\",
     \\"lint\\": \\"sl-scripts lint\\",
     \\"lint.fix\\": \\"yarn lint --fix\\",
