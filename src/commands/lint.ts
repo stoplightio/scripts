@@ -23,9 +23,9 @@ export default class LintCommand extends Command {
 
     let command = buildCommand('tslint', {
       defaultArgs: {
-        format: '--format codeFrame',
-        project: `--project ${getConfigFilePath('tsconfig.json')}`,
-        config: `--config ${getConfigFilePath('tslint.json')}`,
+        '--format': '--format codeFrame',
+        '--project': `--project ${getConfigFilePath('tsconfig.json')}`,
+        '--config': `--config ${getConfigFilePath('tslint.json')}`,
       },
       rawArgs: parsed.raw,
       flags: Object.keys(LintCommand.flags),
