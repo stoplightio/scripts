@@ -2,7 +2,7 @@ import * as path from 'path';
 import * as shelljs from 'shelljs';
 
 import * as utils from '../../../utils';
-import BuildTsdocCommand from '../docs';
+import BuildTypedocCommand from '../docs';
 
 const cwd = () => path.resolve(__dirname, 'fixtures');
 
@@ -20,7 +20,7 @@ describe('sl-scripts release:docs', () => {
   afterEach(() => jest.restoreAllMocks());
 
   it('should commit and push gh-pages branch', async () => {
-    await BuildTsdocCommand.run();
+    await BuildTypedocCommand.run();
 
     // TODO need to overwrite GH_TOKEN to test the final command below. this is not working
     // process.env.GH_TOKEN = '123';

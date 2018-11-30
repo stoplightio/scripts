@@ -1,7 +1,7 @@
 import * as utils from '../../../utils';
-import BuildTsdocCommand from '../tsdoc';
+import BuildTypedocCommand from '../typedoc';
 
-describe('sl-scripts build:tsdoc', () => {
+describe('sl-scripts build:typedoc', () => {
   let shellCommands: string[] = [];
 
   beforeEach(() => {
@@ -13,9 +13,9 @@ describe('sl-scripts build:tsdoc', () => {
   afterEach(() => jest.restoreAllMocks());
 
   it('should use the typedoc binary in node modules', async () => {
-    await BuildTsdocCommand.run();
+    await BuildTypedocCommand.run();
     expect(shellCommands).toEqual([
-      '/mock/node_modules/.bin/typedoc --out /mock/docs-auto --target es6 --theme minimal --mode modules --excludeNotExported --excludePrivate --excludeProtected src',
+      '/mock/node_modules/.bin/typedoc --out /mock/docs-auto --target es6 --theme minimal --mode file --excludeNotExported --excludePrivate --excludeProtected --hideGenerator --tsconfig /mock/node_modules/@stoplight/scripts/tsconfig.build.json',
     ]);
   });
 });

@@ -11,7 +11,7 @@ export default class BuildCommand extends Command {
 
   public static description = 'Builds src or docs.';
 
-  public static examples = [`$ sl-scripts build`, `$ sl-scripts build:tsdoc`];
+  public static examples = [`$ sl-scripts build`, `$ sl-scripts build:typedoc`];
 
   public static args = [];
 
@@ -34,7 +34,7 @@ export default class BuildCommand extends Command {
     commands.push(
       buildCommand('tsc', {
         defaultArgs: {
-          project: `--project ${getConfigFilePath('tsconfig.json')}`,
+          project: `--project ${getConfigFilePath('tsconfig.build.json')}`,
         },
         rawArgs: parsed.raw,
         flags: Object.keys(BuildCommand.flags),

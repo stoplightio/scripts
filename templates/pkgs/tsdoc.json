@@ -1,5 +1,0 @@
-{
-  "scripts": {
-    "build.docs": "sl-scripts build:tsdoc"
-  }
-}
