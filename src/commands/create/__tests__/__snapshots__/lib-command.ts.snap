@@ -44,12 +44,12 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
     \\"@stoplight/ui-kit\\": \\"1.x.x\\"
   },
   \\"devDependencies\\": {
-    \\"@stoplight/scripts\\": \\"1.x.x\\",
+    \\"@stoplight/scripts\\": \\"3.x.x\\",
     \\"@types/react\\": \\"16.x.x\\",
     \\"@types/react-dom\\": \\"16.x.x\\",
     \\"react\\": \\"16.x.x\\",
     \\"react-dom\\": \\"16.x.x\\",
-    \\"typescript\\": \\"3.1.6\\"
+    \\"typescript\\": \\"3.2.1\\"
   },
   \\"lint-staged\\": {
     \\"*.{ts,tsx}$\\": [
@@ -118,8 +118,8 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   \\"peerDependencies\\": {},
   \\"dependencies\\": {},
   \\"devDependencies\\": {
-    \\"@stoplight/scripts\\": \\"1.x.x\\",
-    \\"typescript\\": \\"3.1.6\\"
+    \\"@stoplight/scripts\\": \\"3.x.x\\",
+    \\"typescript\\": \\"3.2.1\\"
   },
   \\"lint-staged\\": {
     \\"*.{ts,tsx}$\\": [

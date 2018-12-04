@@ -13,7 +13,9 @@
   },
   "license": "UNLICENSED",
   "main": "src/index.ts",
-  "files": ["**/*"],
+  "files": [
+    "**/*"
+  ],
   "engines": {
     "node": ">=8.3.0"
   },
@@ -30,11 +32,14 @@
   "peerDependencies": {},
   "dependencies": {},
   "devDependencies": {
-    "@stoplight/scripts": "1.x.x",
-    "typescript": "3.1.6"
+    "@stoplight/scripts": "3.x.x",
+    "typescript": "3.2.1"
   },
   "lint-staged": {
-    "*.{ts,tsx}$": ["yarn lint.fix", "git add"]
+    "*.{ts,tsx}$": [
+      "yarn lint.fix",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
@@ -48,6 +53,8 @@
     }
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }

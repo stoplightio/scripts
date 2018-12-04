@@ -24,7 +24,7 @@ addDecorator(
     styles: {
       infoBody: {
         backgroundColor: 'white',
-        margin: '50px 0 0 0',
+        margin: '50px auto 0 auto',
         padding: '0 25px 25px 25px',
         lineHeight: '2',
         width: 800,
