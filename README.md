@@ -191,7 +191,7 @@ Simply create a `tsconfig.json` file in the root of your project, and extend the
 ```json
 // ./tsconfig.json
 {
-  "extends": "./node_modules/@stoplight/scripts/tsconfig.json",
+  "extends": "@stoplight/scripts/tsconfig.json",
   "include": ["src"],
   "compilerOptions": {
     "outDir": "dist"
@@ -206,7 +206,7 @@ Simply create a `tslint.json` file in the root of your project, and extend the d
 ```json
 // ./tslint.json
 {
-  "extends": ["./node_modules/@stoplight/scripts/tslint.json"]
+  "extends": ["@stoplight/scripts/tslint.json"]
 }
 ```
 

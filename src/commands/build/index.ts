@@ -34,7 +34,7 @@ export default class BuildCommand extends Command {
     commands.push(
       buildCommand('tsc', {
         defaultArgs: {
-          project: `--project ${getConfigFilePath('tsconfig.build.json')}`,
+          '--project': `--project ${getConfigFilePath('tsconfig.build.json')}`,
         },
         rawArgs: parsed.raw,
         flags: Object.keys(BuildCommand.flags),

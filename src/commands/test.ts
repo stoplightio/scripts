@@ -29,8 +29,8 @@ export default class TestCommand extends Command {
 
     const command = buildCommand('jest', {
       defaultArgs: {
-        color: '--color=always',
-        config: `--config=${getConfigFilePath('jest.config.js')}`,
+        '--color': '--color=always',
+        '--config': `--config=${getConfigFilePath('jest.config.js')}`,
       },
       rawArgs: parsed.raw,
       flags: Object.keys(TestCommand.flags),
