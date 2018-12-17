@@ -15,7 +15,6 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "/.storybook",
     "/bin",
     "/dist",
     "/templates",
@@ -86,8 +85,6 @@
     ]
   },
   "peerDependencies": {
-    "react": ">=16",
-    "react-dom": ">=16",
     "webpack": ">=4"
   },
   "dependencies": {
@@ -102,23 +99,9 @@
     "@semantic-release/github": "5.2.5",
     "@semantic-release/npm": "5.1.x",
     "@semantic-release/release-notes-generator": "7.1.x",
-    "@storybook/addon-actions": "4.0.12",
-    "@storybook/addon-info": "4.0.12",
-    "@storybook/addon-knobs": "4.0.12",
-    "@storybook/addon-links": "4.0.12",
-    "@storybook/addon-options": "4.0.12",
-    "@storybook/addons": "4.0.12",
-    "@storybook/core": "4.0.12",
-    "@storybook/react": "4.0.12",
     "@types/enzyme": "3.1.x",
     "@types/jest": "23.3.10",
     "@types/node": "10.12.12",
-    "@types/storybook__addon-actions": "3.4.1",
-    "@types/storybook__addon-info": "3.4.2",
-    "@types/storybook__addon-knobs": "^3.4.1",
-    "@types/storybook__addon-links": "3.3.3",
-    "@types/storybook__addon-options": "4.0.0",
-    "@types/storybook__react": "4.0.0",
     "babel-loader": "8.0.x",
     "cli-ux": "4.9.x",
     "commitizen": "3.0.5",
@@ -132,7 +115,6 @@
     "jest-enzyme": "7.0.x",
     "lint-staged": "8.1.0",
     "lodash": "4.x.x",
-    "react-docgen-typescript-loader": "3.0.x",
     "rimraf": "2.6.x",
     "semantic-release": "15.12.5",
     "shelljs": "0.8.x",
@@ -140,8 +122,7 @@
     "ts-loader": "5.3.1",
     "tslib": "1.9.3",
     "tslint-config-stoplight": "1.2.x",
-    "typedoc": "0.13.x",
-    "typescript-plugin-styled-components": "1.0.x"
+    "typedoc": "0.13.x"
   },
   "devDependencies": {
     "@oclif/dev-cli": "1.19.5",

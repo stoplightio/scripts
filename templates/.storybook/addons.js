@@ -1,1 +1,4 @@
-import '@stoplight/scripts/.storybook/addons';
+import { setupThemes } from '@stoplight/storybook-config/addons';
+import { themes } from './themes';
+
+setupThemes(themes);
