@@ -1,4 +1,1 @@
-import { setupThemes } from '@stoplight/storybook-config/addons';
-import { themes } from './themes';
-
-setupThemes(themes);
+import '@stoplight/storybook-config/addons';
