@@ -1,4 +1,4 @@
-import { createThemedModule } from '../src/theme';
+import { createThemedModule } from '@stoplight/ui-kit';
 
 const { useTheme, ThemeProvider } = createThemedModule();
 
