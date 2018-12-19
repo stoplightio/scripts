@@ -37,18 +37,22 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
     \\"test.update\\": \\"yarn test --updateSnapshot\\",
     \\"test.watch\\": \\"yarn test --watch\\"
   },
-  \\"peerDependencies\\": {
-    \\"react\\": \\">=16\\"
-  },
+  \\"peerDependencies\\": {},
   \\"dependencies\\": {
-    \\"@stoplight/ui-kit\\": \\"1.x.x\\"
+    \\"@emotion/core\\": \\"10.0.x\\",
+    \\"@emotion/provider\\": \\"0.11.x\\",
+    \\"@stoplight/ui-kit\\": \\"1.x.x\\",
+    \\"react\\": \\"16.7.0-alpha.2\\",
+    \\"react-dom\\": \\"16.7.0-alpha.2\\"
   },
   \\"devDependencies\\": {
-    \\"@stoplight/scripts\\": \\"3.x.x\\",
+    \\"@stoplight/scripts\\": \\"4.x.x\\",
+    \\"@stoplight/storybook-config\\": \\"1.x.x\\",
     \\"@types/react\\": \\"16.x.x\\",
     \\"@types/react-dom\\": \\"16.x.x\\",
-    \\"react\\": \\"16.x.x\\",
-    \\"react-dom\\": \\"16.x.x\\",
+    \\"enzyme\\": \\"3.x.x\\",
+    \\"enzyme-adapter-react-16\\": \\"1.x.x\\",
+    \\"enzyme-to-json\\": \\"3.x.x\\",
     \\"typescript\\": \\"3.2.2\\"
   },
   \\"lint-staged\\": {
@@ -118,7 +122,7 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   \\"peerDependencies\\": {},
   \\"dependencies\\": {},
   \\"devDependencies\\": {
-    \\"@stoplight/scripts\\": \\"3.x.x\\",
+    \\"@stoplight/scripts\\": \\"4.x.x\\",
     \\"typescript\\": \\"3.2.2\\"
   },
   \\"lint-staged\\": {

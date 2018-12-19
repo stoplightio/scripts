@@ -1,15 +1,16 @@
 {
-  "peerDependencies": {
-    "react": ">=16"
-  },
   "dependencies": {
-    "@stoplight/ui-kit": "1.x.x"
+    "@emotion/core": "10.0.x",
+    "@emotion/provider": "0.11.x",
+    "@stoplight/ui-kit": "1.x.x",
+    "react": "16.7.0-alpha.2",
+    "react-dom": "16.7.0-alpha.2"
   },
   "devDependencies": {
-    "@stoplight/storybook-config": "1.x.x",
-    "react": "16.7.x",
-    "react-dom": "16.7.x",
     "@types/react": "16.x.x",
-    "@types/react-dom": "16.x.x"
+    "@types/react-dom": "16.x.x",
+    "enzyme": "3.x.x",
+    "enzyme-adapter-react-16": "1.x.x",
+    "enzyme-to-json": "3.x.x"
   }
 }

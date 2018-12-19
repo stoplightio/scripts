@@ -84,9 +84,6 @@
       "@commitlint/config-conventional"
     ]
   },
-  "peerDependencies": {
-    "webpack": ">=4"
-  },
   "dependencies": {
     "@commitlint/cli": "7.2.x",
     "@commitlint/config-conventional": "7.1.x",

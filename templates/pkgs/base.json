@@ -30,7 +30,7 @@
   "peerDependencies": {},
   "dependencies": {},
   "devDependencies": {
-    "@stoplight/scripts": "3.x.x",
+    "@stoplight/scripts": "4.x.x",
     "typescript": "3.2.2"
   },
   "lint-staged": {
