@@ -61,12 +61,6 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
       \\"git add\\"
     ]
   },
-  \\"husky\\": {
-    \\"hooks\\": {
-      \\"commit-msg\\": \\"commitlint -E HUSKY_GIT_PARAMS\\",
-      \\"pre-commit\\": \\"lint-staged\\"
-    }
-  },
   \\"config\\": {
     \\"commitizen\\": {
       \\"path\\": \\"node_modules/cz-conventional-changelog\\"
@@ -130,12 +124,6 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
       \\"yarn lint.fix\\",
       \\"git add\\"
     ]
-  },
-  \\"husky\\": {
-    \\"hooks\\": {
-      \\"commit-msg\\": \\"commitlint -E HUSKY_GIT_PARAMS\\",
-      \\"pre-commit\\": \\"lint-staged\\"
-    }
   },
   \\"config\\": {
     \\"commitizen\\": {
