@@ -36,12 +36,6 @@
   "lint-staged": {
     "*.{ts,tsx}$": ["yarn lint.fix", "git add"]
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
