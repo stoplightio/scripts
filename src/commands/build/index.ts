@@ -58,7 +58,7 @@ export default class BuildCommand extends Command {
   }
 
   public postPublish() {
-    cli.action.start('copying extra files ot dist folder...', undefined, {
+    cli.action.start('copying extra files to dist folder...', undefined, {
       stdout: true,
     });
 
