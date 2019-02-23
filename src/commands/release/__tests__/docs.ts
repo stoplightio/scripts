@@ -11,8 +11,11 @@ describe('sl-scripts release:docs', () => {
 
   beforeEach(() => {
     shellCommands = [];
+    // @ts-ignore
     jest.spyOn(shelljs, 'cd').mockImplementation(val => shellCommands.push(`cd ${val}`));
+    // @ts-ignore
     jest.spyOn(shelljs, 'touch').mockImplementation(val => shellCommands.push(`touch ${val}`));
+    // @ts-ignore
     jest.spyOn(utils, 'runCommand').mockImplementation(val => shellCommands.push(val));
     jest.spyOn(process, 'cwd').mockImplementation(cwd);
   });

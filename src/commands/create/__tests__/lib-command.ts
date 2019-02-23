@@ -14,6 +14,7 @@ describe('sl-scripts create:lib', () => {
       // @ts-ignore
       pjson: '',
     });
+    // @ts-ignore
     jest.spyOn(utils, 'runCommand').mockImplementation(val => shellCommands.push(val));
     jest.spyOn(process, 'cwd').mockImplementation(() => '/mock');
   });

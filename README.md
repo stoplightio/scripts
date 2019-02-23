@@ -3,7 +3,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/2628d0fe95cf3abae711/maintainability)](https://codeclimate.com/github/stoplightio/scripts/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/2628d0fe95cf3abae711/test_coverage)](https://codeclimate.com/github/stoplightio/scripts/test_coverage)
 
 <!-- toc -->
-* [@stoplight/scripts](#stoplight-scripts)
+* [@stoplight/scripts](#stoplightscripts)
 * [Usage](#usage)
 * [Commands](#commands)
 * [Overriding Configs](#overriding-configs)
@@ -24,10 +24,8 @@ npx @stoplight/scripts create:lib
 * [`sl-scripts build:typedoc`](#sl-scripts-buildtypedoc)
 * [`sl-scripts create:lib`](#sl-scripts-createlib)
 * [`sl-scripts help [COMMAND]`](#sl-scripts-help-command)
-* [`sl-scripts lint`](#sl-scripts-lint)
 * [`sl-scripts release`](#sl-scripts-release)
 * [`sl-scripts release:docs`](#sl-scripts-releasedocs)
-* [`sl-scripts test [PATH]`](#sl-scripts-test-path)
 
 ## `sl-scripts build`
 
@@ -93,25 +91,7 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.4/src/commands/help.ts)_
-
-## `sl-scripts lint`
-
-Runs tslint. Supports all tslint flags.
-
-```
-USAGE
-  $ sl-scripts lint
-
-OPTIONS
-  --verbose  moar logs
-
-EXAMPLES
-  $ sl-scripts lint
-  $ sl-scripts lint src/**/*
-```
-
-_See code: [dist/commands/lint.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/lint.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
 
 ## `sl-scripts release`
 
@@ -148,27 +128,6 @@ EXAMPLE
 ```
 
 _See code: [dist/commands/release/docs.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/docs.ts)_
-
-## `sl-scripts test [PATH]`
-
-Runs Jest. Supports all Jest flags.
-
-```
-USAGE
-  $ sl-scripts test [PATH]
-
-ARGUMENTS
-  PATH  only run tests in the target directory
-
-OPTIONS
-  --verbose  moar logs
-
-EXAMPLES
-  $ sl-scripts test
-  $ sl-scripts test src/utils
-```
-
-_See code: [dist/commands/test.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/test.ts)_
 <!-- commandsstop -->
 
 # Overriding Configs

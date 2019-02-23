@@ -10,6 +10,7 @@ describe('sl-scripts release', () => {
 
   beforeEach(() => {
     shellCommands = [];
+    // @ts-ignore
     jest.spyOn(utils, 'runCommand').mockImplementation(val => shellCommands.push(val));
     jest.spyOn(process, 'cwd').mockImplementation(cwd);
   });
