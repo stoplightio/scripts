@@ -20,19 +20,19 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
     \\"**/*\\"
   ],
   \\"engines\\": {
-    \\"node\\": \\">=8.3.0\\"
+    \\"node\\": \\">=10\\"
   },
   \\"scripts\\": {
     \\"build\\": \\"sl-scripts build\\",
     \\"build.docs\\": \\"build-storybook -c .storybook -o docs-auto\\",
     \\"commit\\": \\"git-cz\\",
-    \\"lint\\": \\"sl-scripts lint\\",
+    \\"lint\\": \\"tslint -c tslint.json 'src/**/*.ts?'\\",
     \\"lint.fix\\": \\"yarn lint --fix\\",
     \\"release\\": \\"sl-scripts release\\",
     \\"release.docs\\": \\"sl-scripts release:docs\\",
     \\"release.dryRun\\": \\"sl-scripts release --dry-run --debug\\",
     \\"storybook\\": \\"start-storybook -p 9001\\",
-    \\"test\\": \\"sl-scripts test\\",
+    \\"test\\": \\"jest\\",
     \\"test.prod\\": \\"yarn lint && yarn test --coverage --maxWorkers=2\\",
     \\"test.update\\": \\"yarn test --updateSnapshot\\",
     \\"test.watch\\": \\"yarn test --watch\\"
@@ -40,18 +40,31 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   \\"peerDependencies\\": {},
   \\"dependencies\\": {
     \\"@stoplight/ui-kit\\": \\"1.x.x\\",
-    \\"react\\": \\"16.7.0-alpha.2\\",
-    \\"react-dom\\": \\"16.7.0-alpha.2\\"
+    \\"react\\": \\"16.8.3\\",
+    \\"react-dom\\": \\"16.8.3\\"
   },
   \\"devDependencies\\": {
     \\"@stoplight/scripts\\": \\"4.x.x\\",
     \\"@stoplight/storybook-config\\": \\"1.x.x\\",
+    \\"@types/enzyme\\": \\"3.x.x\\",
+    \\"@types/enzyme-adapter-react-16\\": \\"1.x.x\\",
+    \\"@types/jest\\": \\"24.x.x\\",
     \\"@types/react\\": \\"16.x.x\\",
     \\"@types/react-dom\\": \\"16.x.x\\",
     \\"enzyme\\": \\"3.x.x\\",
     \\"enzyme-adapter-react-16\\": \\"1.x.x\\",
     \\"enzyme-to-json\\": \\"3.x.x\\",
-    \\"typescript\\": \\"3.2.2\\"
+    \\"jest\\": \\"24.x.x\\",
+    \\"jest-enzyme\\": \\"7.x.x\\",
+    \\"prettier\\": \\"1.x.x\\",
+    \\"ts-jest\\": \\"24.x.x\\",
+    \\"tslint\\": \\"5.12.x\\",
+    \\"tslint-config-prettier\\": \\"1.18.x\\",
+    \\"tslint-config-stoplight\\": \\"1.2.x\\",
+    \\"tslint-plugin-prettier\\": \\"2.0.x\\",
+    \\"tslint-react\\": \\"3.6.x\\",
+    \\"tslint-react-hooks\\": \\"1.1.x\\",
+    \\"typescript\\": \\"3.3.x\\"
   },
   \\"lint-staged\\": {
     \\"*.{ts,tsx}$\\": [
@@ -74,6 +87,11 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
     \\"extends\\": [
       \\"@commitlint/config-conventional\\"
     ]
+  },
+  \\"prettier\\": {
+    \\"printWidth\\": 120,
+    \\"singleQuote\\": true,
+    \\"trailingComma\\": \\"all\\"
   },
   \\"release\\": {
     \\"extends\\": \\"@stoplight/scripts/release\\"
@@ -101,18 +119,18 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
     \\"**/*\\"
   ],
   \\"engines\\": {
-    \\"node\\": \\">=8.3.0\\"
+    \\"node\\": \\">=10\\"
   },
   \\"scripts\\": {
     \\"build\\": \\"sl-scripts build\\",
     \\"build.docs\\": \\"sl-scripts build:typedoc\\",
     \\"commit\\": \\"git-cz\\",
-    \\"lint\\": \\"sl-scripts lint\\",
+    \\"lint\\": \\"tslint -c tslint.json 'src/**/*.ts?'\\",
     \\"lint.fix\\": \\"yarn lint --fix\\",
     \\"release\\": \\"sl-scripts release\\",
     \\"release.docs\\": \\"sl-scripts release:docs\\",
     \\"release.dryRun\\": \\"sl-scripts release --dry-run --debug\\",
-    \\"test\\": \\"sl-scripts test\\",
+    \\"test\\": \\"jest\\",
     \\"test.prod\\": \\"yarn lint && yarn test --coverage --maxWorkers=2\\",
     \\"test.update\\": \\"yarn test --updateSnapshot\\",
     \\"test.watch\\": \\"yarn test --watch\\"
@@ -121,7 +139,15 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   \\"dependencies\\": {},
   \\"devDependencies\\": {
     \\"@stoplight/scripts\\": \\"4.x.x\\",
-    \\"typescript\\": \\"3.2.2\\"
+    \\"@types/jest\\": \\"24.x.x\\",
+    \\"jest\\": \\"24.x.x\\",
+    \\"prettier\\": \\"1.x.x\\",
+    \\"ts-jest\\": \\"24.x.x\\",
+    \\"tslint\\": \\"5.12.x\\",
+    \\"tslint-config-prettier\\": \\"1.18.x\\",
+    \\"tslint-config-stoplight\\": \\"1.2.x\\",
+    \\"tslint-plugin-prettier\\": \\"2.0.x\\",
+    \\"typescript\\": \\"3.3.x\\"
   },
   \\"lint-staged\\": {
     \\"*.{ts,tsx}$\\": [
@@ -144,6 +170,11 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
     \\"extends\\": [
       \\"@commitlint/config-conventional\\"
     ]
+  },
+  \\"prettier\\": {
+    \\"printWidth\\": 120,
+    \\"singleQuote\\": true,
+    \\"trailingComma\\": \\"all\\"
   },
   \\"release\\": {
     \\"extends\\": \\"@stoplight/scripts/release\\"

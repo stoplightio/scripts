@@ -15,14 +15,14 @@
   "main": "src/index.ts",
   "files": ["**/*"],
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=10"
   },
   "scripts": {
     "build": "sl-scripts build",
     "commit": "git-cz",
-    "lint": "sl-scripts lint",
+    "lint": "tslint -c tslint.json 'src/**/*.ts?'",
     "lint.fix": "yarn lint --fix",
-    "test": "sl-scripts test",
+    "test": "jest",
     "test.prod": "yarn lint && yarn test --coverage --maxWorkers=2",
     "test.update": "yarn test --updateSnapshot",
     "test.watch": "yarn test --watch"
@@ -31,7 +31,15 @@
   "dependencies": {},
   "devDependencies": {
     "@stoplight/scripts": "4.x.x",
-    "typescript": "3.2.2"
+    "@types/jest": "24.x.x",
+    "jest": "24.x.x",
+    "prettier": "1.x.x",
+    "ts-jest": "24.x.x",
+    "tslint": "5.12.x",
+    "tslint-config-prettier": "1.18.x",
+    "tslint-config-stoplight": "1.2.x",
+    "tslint-plugin-prettier": "2.0.x",
+    "typescript": "3.3.x"
   },
   "lint-staged": {
     "*.{ts,tsx}$": ["yarn lint.fix", "git add"]
@@ -49,5 +57,10 @@
   },
   "commitlint": {
     "extends": ["@commitlint/config-conventional"]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "all"
   }
 }

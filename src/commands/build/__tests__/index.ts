@@ -14,6 +14,7 @@ describe.skip('sl-scripts build', () => {
 
   beforeEach(() => {
     shellCommands = [];
+    // @ts-ignore
     jest.spyOn(utils, 'runCommand').mockImplementation(val => shellCommands.push(val));
     jest.spyOn(process, 'cwd').mockImplementation(cwd);
     jest.spyOn(fs, 'writeFileSync').mockImplementation((p, val) => {
