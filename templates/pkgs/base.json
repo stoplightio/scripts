@@ -15,7 +15,7 @@
   "main": "src/index.ts",
   "files": ["**/*"],
   "engines": {
-    "node": ">=11"
+    "node": ">=10"
   },
   "scripts": {
     "build": "sl-scripts build",

@@ -20,7 +20,7 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
     \\"**/*\\"
   ],
   \\"engines\\": {
-    \\"node\\": \\">=11\\"
+    \\"node\\": \\">=10\\"
   },
   \\"scripts\\": {
     \\"build\\": \\"sl-scripts build\\",
@@ -119,7 +119,7 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
     \\"**/*\\"
   ],
   \\"engines\\": {
-    \\"node\\": \\">=11\\"
+    \\"node\\": \\">=10\\"
   },
   \\"scripts\\": {
     \\"build\\": \\"sl-scripts build\\",
