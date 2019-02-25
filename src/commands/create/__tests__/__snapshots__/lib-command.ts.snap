@@ -91,7 +91,7 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   \\"prettier\\": {
     \\"printWidth\\": 120,
     \\"singleQuote\\": true,
-    \\"trailingComma\\": \\"es5\\"
+    \\"trailingComma\\": \\"all\\"
   },
   \\"release\\": {
     \\"extends\\": \\"@stoplight/scripts/release\\"
@@ -174,7 +174,7 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   \\"prettier\\": {
     \\"printWidth\\": 120,
     \\"singleQuote\\": true,
-    \\"trailingComma\\": \\"es5\\"
+    \\"trailingComma\\": \\"all\\"
   },
   \\"release\\": {
     \\"extends\\": \\"@stoplight/scripts/release\\"
