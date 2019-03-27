@@ -79,6 +79,7 @@ export default class BuildCommand extends Command {
       'optionalDependencies',
       'peerDependencies',
       'dependencies',
+      'pkg',
     ]);
 
     releasePkg.main = 'index.js';
