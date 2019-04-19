@@ -35,7 +35,9 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
     \\"test\\": \\"jest\\",
     \\"test.prod\\": \\"yarn lint && yarn test --coverage --maxWorkers=2\\",
     \\"test.update\\": \\"yarn test --updateSnapshot\\",
-    \\"test.watch\\": \\"yarn test --watch\\"
+    \\"test.watch\\": \\"yarn test --watch\\",
+    \\"yalc\\": \\"yarn build && (cd dist && yalc push)\\",
+    \\"yalc.watch\\": \\"nodemon --watch 'src/**/*' --exec 'yarn yalc'\\"
   },
   \\"peerDependencies\\": {},
   \\"dependencies\\": {
@@ -133,7 +135,9 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
     \\"test\\": \\"jest\\",
     \\"test.prod\\": \\"yarn lint && yarn test --coverage --maxWorkers=2\\",
     \\"test.update\\": \\"yarn test --updateSnapshot\\",
-    \\"test.watch\\": \\"yarn test --watch\\"
+    \\"test.watch\\": \\"yarn test --watch\\",
+    \\"yalc\\": \\"yarn build && (cd dist && yalc push)\\",
+    \\"yalc.watch\\": \\"nodemon --watch 'src/**/*' --exec 'yarn yalc'\\"
   },
   \\"peerDependencies\\": {},
   \\"dependencies\\": {},
