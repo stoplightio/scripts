@@ -25,7 +25,9 @@
     "test": "jest",
     "test.prod": "yarn lint && yarn test --coverage --maxWorkers=2",
     "test.update": "yarn test --updateSnapshot",
-    "test.watch": "yarn test --watch"
+    "test.watch": "yarn test --watch",
+    "yalc": "yarn build && (cd dist && yalc push)",
+    "yalc.watch": "nodemon --watch 'src/**/*' --exec 'yarn yalc'"
   },
   "peerDependencies": {},
   "dependencies": {},
@@ -33,6 +35,7 @@
     "@stoplight/scripts": "4.x.x",
     "@types/jest": "24.x.x",
     "jest": "24.x.x",
+    "nodemon": "1.x.x",
     "prettier": "1.x.x",
     "ts-jest": "24.x.x",
     "tslint": "5.12.x",
