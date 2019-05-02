@@ -2,7 +2,8 @@ import { Command, flags as flagHelpers } from '@oclif/command';
 import cli from 'cli-ux';
 import * as fs from 'fs';
 
-import { buildCommand, buildPath, getConfigFilePath, runCommand } from '../../utils';
+import * as path from 'path';
+import { buildCommand, buildPath, runCommand } from '../../utils';
 
 const _pick = require('lodash/pick');
 
@@ -32,9 +33,9 @@ export default class BuildCommand extends Command {
     commands.push(`${buildCommand('rimraf')} dist`);
 
     commands.push(
-      buildCommand('tsc', {
+      buildCommand('rollup', {
         defaultArgs: {
-          '--project': `--project ${getConfigFilePath('tsconfig.build.json')}`,
+          '--config': path.resolve(__dirname, '../../../rollup.config.js'),
         },
         rawArgs: parsed.raw,
         flags: Object.keys(BuildCommand.flags),
@@ -68,7 +69,6 @@ export default class BuildCommand extends Command {
       'version',
       'description',
       'keywords',
-      'main',
       'typings',
       'sideEffects',
       'files',
@@ -82,7 +82,8 @@ export default class BuildCommand extends Command {
       'pkg',
     ]);
 
-    releasePkg.main = 'index.js';
+    releasePkg.main = 'index.cjs.js';
+    releasePkg.module = 'index.es.js';
     releasePkg.typings = 'index.d.ts';
 
     fs.writeFileSync(buildPath('dist', 'package.json'), JSON.stringify(releasePkg, null, 2));
