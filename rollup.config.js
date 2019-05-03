@@ -1,28 +1,33 @@
 import typescript from 'rollup-plugin-typescript2';
 import { terser } from "rollup-plugin-terser";
 import * as path from "path";
+import * as fs from "fs";
 
 const BASE_PATH = process.cwd();
-const getFile = path => path.resolve(BASE_PATH, path);
+const getConfigFile = (name) => {
+  const filePath = path.resolve(BASE_PATH, name);
+  if (fs.existsSync(path.resolve(BASE_PATH, name))) {
+    return filePath;
+  }
 
-const pkg = require(getFile('package.json'));
+  return path.resolve(BASE_PATH, 'node_modules', '@stoplight', 'scripts', name);
+};
 
 export default {
   input: path.resolve(BASE_PATH, 'src/index.ts'),
-  external: Object.keys({ ...pkg.dependencies, ...pkg.peerDependencies }),
   plugins: [
     typescript({
-      tsconfig: getFile('tsconfig.build.json'),
+      tsconfig: getConfigFile('tsconfig.json'),
     }),
     terser()
   ],
   output: [
     {
-      file: getFile('dist/index.cjs.js'),
+      file: path.resolve(BASE_PATH, 'dist/index.cjs.js'),
       format: 'cjs'
     },
     {
-      file: getFile('dist/index.es.js'),
+      file: path.resolve(BASE_PATH, 'dist/index.es.js'),
       format: 'esm'
     }
   ]
