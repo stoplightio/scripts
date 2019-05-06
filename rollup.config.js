@@ -1,7 +1,8 @@
 import typescript from 'rollup-plugin-typescript2';
-import { terser } from "rollup-plugin-terser";
-import * as path from "path";
-import * as fs from "fs";
+import { terser } from 'rollup-plugin-terser';
+import * as path from 'path';
+import * as fs from 'fs';
+import * as esm from 'esm';
 
 const BASE_PATH = process.cwd();
 const getConfigFile = (name) => {
@@ -16,7 +17,7 @@ const getConfigFile = (name) => {
 let projectRollupConfig = null;
 
 try {
-  ({ default: projectRollupConfig } = require("esm")(module)(path.resolve(process.cwd(), 'rollup.config.js')));
+  ({ default: projectRollupConfig } = esm(module)(path.resolve(process.cwd(), 'rollup.config.js')));
 } catch (ex) {
 }
 
