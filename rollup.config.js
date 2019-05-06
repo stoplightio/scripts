@@ -13,6 +13,13 @@ const getConfigFile = (name) => {
   return path.resolve(BASE_PATH, 'node_modules', '@stoplight', 'scripts', name);
 };
 
+let projectRollupConfig = null;
+
+try {
+  ({ default: projectRollupConfig } = require("esm")(module)(path.resolve(process.cwd(), 'rollup.config.js')));
+} catch (ex) {
+}
+
 export default {
   input: path.resolve(BASE_PATH, 'src/index.ts'),
   plugins: [
@@ -30,5 +37,6 @@ export default {
       file: path.resolve(BASE_PATH, 'dist/index.es.js'),
       format: 'esm'
     }
-  ]
+  ],
+  ...projectRollupConfig,
 }
