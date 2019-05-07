@@ -80,7 +80,9 @@ export default class BuildCommand extends Command {
 
     releasePkg.main = 'index.cjs.js';
     releasePkg.module = 'index.es.js';
-    releasePkg.typings = 'index.d.ts';
+    if (!('typings' in releasePkg)) {
+      releasePkg.typings = 'src/index.d.ts';
+    }
 
     fs.writeFileSync(buildPath('dist', 'package.json'), JSON.stringify(releasePkg, null, 2));
     fs.copyFileSync(buildPath('README.md'), buildPath('dist', 'README.md'));
