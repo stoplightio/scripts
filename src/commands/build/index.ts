@@ -2,8 +2,7 @@ import { Command, flags as flagHelpers } from '@oclif/command';
 import cli from 'cli-ux';
 import * as fs from 'fs';
 
-import * as path from 'path';
-import { buildCommand, buildPath, runCommand } from '../../utils';
+import { buildCommand, buildPath, getConfigFilePath, runCommand } from '../../utils';
 
 const _pick = require('lodash/pick');
 
@@ -33,7 +32,7 @@ export default class BuildCommand extends Command {
     commands.push(`${buildCommand('rimraf')} dist`);
 
     commands.push(
-      buildCommand(`rollup --config ${path.resolve(__dirname, '../../../rollup.config.js')}`, {
+      buildCommand(`rollup --config ${getConfigFilePath('rollup.config.js')}`, {
         rawArgs: parsed.raw,
         flags: Object.keys(BuildCommand.flags),
       })

@@ -1,8 +1,7 @@
-import typescript from 'rollup-plugin-typescript2';
-import { terser } from 'rollup-plugin-terser';
-import * as path from 'path';
-import * as fs from 'fs';
-import * as esm from 'esm';
+const typescript = require('rollup-plugin-typescript2');
+const { terser } = require('rollup-plugin-terser');
+const path = require('path');
+const fs = require('fs');
 
 const BASE_PATH = process.cwd();
 const getConfigFile = (name) => {
@@ -14,20 +13,13 @@ const getConfigFile = (name) => {
   return path.resolve(BASE_PATH, 'node_modules', '@stoplight', 'scripts', name);
 };
 
-let projectRollupConfig = null;
-
-try {
-  ({ default: projectRollupConfig } = esm(module)(path.resolve(process.cwd(), 'rollup.config.js')));
-} catch (ex) {
-}
-
-export default {
+module.exports = {
   input: path.resolve(BASE_PATH, 'src/index.ts'),
   plugins: [
     typescript({
       tsconfig: getConfigFile('tsconfig.json'),
     }),
-    terser()
+    terser(),
   ],
   output: [
     {
@@ -37,7 +29,6 @@ export default {
     {
       file: path.resolve(BASE_PATH, 'dist/index.es.js'),
       format: 'esm'
-    }
+    },
   ],
-  ...projectRollupConfig,
-}
+};
