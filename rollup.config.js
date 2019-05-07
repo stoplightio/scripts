@@ -18,6 +18,7 @@ module.exports = {
   plugins: [
     typescript({
       tsconfig: getConfigFile('tsconfig.json'),
+      include: ['src/**/*.{ts,tsx}'],
     }),
     terser(),
   ],
