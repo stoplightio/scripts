@@ -126,7 +126,6 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   },
   \\"scripts\\": {
     \\"build\\": \\"sl-scripts build\\",
-    \\"build.docs\\": \\"sl-scripts build:typedoc\\",
     \\"commit\\": \\"git-cz\\",
     \\"lint\\": \\"tslint -c tslint.json 'src/**/*.ts?'\\",
     \\"lint.fix\\": \\"yarn lint --fix\\",
