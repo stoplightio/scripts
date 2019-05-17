@@ -35,7 +35,7 @@ export default class BuildCommand extends Command {
       buildCommand(`rollup --config ${getConfigFilePath('rollup.config.js')}`, {
         rawArgs: parsed.raw,
         flags: Object.keys(BuildCommand.flags),
-      })
+      }),
     );
 
     if (parsed.flags.verbose) {
