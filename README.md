@@ -21,7 +21,6 @@ npx @stoplight/scripts create:lib
 
 <!-- commands -->
 * [`sl-scripts build`](#sl-scripts-build)
-* [`sl-scripts build:typedoc`](#sl-scripts-buildtypedoc)
 * [`sl-scripts create:lib`](#sl-scripts-createlib)
 * [`sl-scripts help [COMMAND]`](#sl-scripts-help-command)
 * [`sl-scripts release`](#sl-scripts-release)
@@ -44,23 +43,6 @@ EXAMPLES
 ```
 
 _See code: [dist/commands/build/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/index.ts)_
-
-## `sl-scripts build:typedoc`
-
-Builds tsdoc files. Output into docs-auto folder.
-
-```
-USAGE
-  $ sl-scripts build:typedoc
-
-OPTIONS
-  --verbose  moar logs
-
-EXAMPLE
-  $ sl-scripts build:tsdoc
-```
-
-_See code: [dist/commands/build/typedoc.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/typedoc.ts)_
 
 ## `sl-scripts create:lib`
 

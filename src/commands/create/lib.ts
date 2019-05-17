@@ -162,9 +162,6 @@ export default class CreateLibCommand extends Command {
 
       // react uses storybook
       merge(pkg, JSON.parse(fs.readFileSync(path.resolve(this.templateDir(), 'pkgs', 'storybook.json')) as any));
-    } else {
-      // plain ts library uses typedoc
-      merge(pkg, JSON.parse(fs.readFileSync(path.resolve(this.templateDir(), 'pkgs', 'typedoc.json')) as any));
     }
 
     // sort sections
@@ -201,7 +198,7 @@ export default class CreateLibCommand extends Command {
       if (responses.react) {
         readme = readme.replace(
           new RegExp('<!-- DOCS_LINK -->', 'g'),
-          `Explore the components: [Storybook](${docsUrl})`
+          `Explore the components: [Storybook](${docsUrl})`,
         );
       } else {
         readme = readme.replace(new RegExp('<!-- DOCS_LINK -->', 'g'), `Explore the interfaces: [TSDoc](${docsUrl})`);

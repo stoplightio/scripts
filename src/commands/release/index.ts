@@ -28,7 +28,7 @@ export default class ReleaseCommand extends Command {
         defaultArgs: {},
         rawArgs: parsed.raw,
         flags: Object.keys(ReleaseCommand.flags),
-      })
+      }),
     );
 
     if (parsed.flags.verbose) {

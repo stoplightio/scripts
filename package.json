@@ -110,8 +110,7 @@
     "rollup-plugin-typescript2": "^0.21.1",
     "semantic-release": "15.13.12",
     "shelljs": "0.8.x",
-    "tslib": "1.9.3",
-    "typedoc": "0.14.2"
+    "tslib": "1.9.3"
   },
   "devDependencies": {
     "@oclif/dev-cli": "1.22.0",
