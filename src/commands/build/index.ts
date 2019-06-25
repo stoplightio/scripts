@@ -1,6 +1,8 @@
 import { Command, flags as flagHelpers } from '@oclif/command';
 import cli from 'cli-ux';
 import * as fs from 'fs';
+import { dirname } from 'path';
+import { cp, mkdir } from 'shelljs';
 
 import { buildCommand, buildPath, getConfigFilePath, runCommand } from '../../utils';
 
@@ -55,7 +57,7 @@ export default class BuildCommand extends Command {
   }
 
   public postPublish() {
-    cli.action.start('copying extra files ot dist folder...', undefined, {
+    cli.action.start('copying extra files to dist folder...', undefined, {
       stdout: true,
     });
 
@@ -82,6 +84,22 @@ export default class BuildCommand extends Command {
     releasePkg.module = 'index.es.js';
     if (!('typings' in releasePkg)) {
       releasePkg.typings = 'src/index.d.ts';
+    }
+
+    // Convert any yalced dependencies (local "file:" dependencies) into proper bundledDependencies before publishing
+    for (const [name, version] of Object.entries(releasePkg.dependencies as { [key: string]: string })) {
+      if (version.startsWith('file:')) {
+        const filepath = version.replace('file:', '');
+        const installPath = buildPath('dist', 'node_modules', name);
+        mkdir('-p', dirname(installPath));
+        cp('-r', buildPath(filepath), installPath);
+        if (!releasePkg.bundledDependencies) {
+          releasePkg.bundledDependencies = [];
+        }
+        releasePkg.bundledDependencies.push(name);
+        const actualVersion = require(buildPath(filepath, 'package.json')).version;
+        releasePkg.dependencies[name] = actualVersion;
+      }
     }
 
     fs.writeFileSync(buildPath('dist', 'package.json'), JSON.stringify(releasePkg, null, 2));
