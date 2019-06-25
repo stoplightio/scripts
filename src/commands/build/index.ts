@@ -97,8 +97,9 @@ export default class BuildCommand extends Command {
           releasePkg.bundledDependencies = [];
         }
         releasePkg.bundledDependencies.push(name);
-        const actualVersion = require(buildPath(filepath, 'package.json')).version;
-        releasePkg.dependencies[name] = actualVersion;
+        // Remove the dependency from 'dependencies' since yarn (unlike npm) isn't smart enough
+        // to know bundledDependencies don't be installed from registry
+        delete releasePkg.dependencies[name];
       }
     }
 
