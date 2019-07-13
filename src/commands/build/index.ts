@@ -83,7 +83,7 @@ export default class BuildCommand extends Command {
     releasePkg.main = 'index.cjs.js';
     releasePkg.module = 'index.es.js';
     if (!('typings' in releasePkg)) {
-      releasePkg.typings = 'src/index.d.ts';
+      releasePkg.typings = 'index.d.ts';
     }
 
     // Convert any yalced dependencies (local "file:" dependencies) into proper bundledDependencies before publishing
