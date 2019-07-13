@@ -32,7 +32,7 @@ export default class CreateLibCommand extends Command {
       {
         name: 'name',
         default: '@stoplight/library',
-        validate: val => {
+        validate: (val: any) => {
           return !val.trim() ? 'name is required' : true;
         },
       },
