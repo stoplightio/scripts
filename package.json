@@ -49,7 +49,7 @@
     "test.watch": "jest --watch",
     "test.prod": "yarn lint && yarn test --coverage --maxWorkers=2",
     "test.update": "yarn test --updateSnapshot",
-    "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts'",
+    "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.{ts,tsx}'",
     "lint.fix": "yarn lint --fix",
     "commit": "git-cz",
     "release": "semantic-release",
