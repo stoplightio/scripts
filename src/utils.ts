@@ -7,7 +7,7 @@ export const buildCommand = (
   baseCommand: string,
   { defaultArgs = {}, rawArgs = [], flags = [] }: { defaultArgs?: any; rawArgs?: ParsingToken[]; flags?: string[] } = {}
 ) => {
-  let command = path.resolve(process.cwd(), 'node_modules', '.bin', baseCommand);
+  let command = buildPath('node_modules', '.bin', baseCommand);
 
   for (const arg of rawArgs) {
     if (!flags.includes(arg.input.substring(2))) command += ` ${arg.input}`;
@@ -37,9 +37,9 @@ export const runCommand = (command: string, { handleError = true } = {}) => {
   }
 };
 
-export const getConfigFilePath = (name: string): string => {
-  const filePath = path.resolve(process.cwd(), name);
-  if (fs.existsSync(path.resolve(process.cwd(), name))) {
+export const getConfigFilePath = (directory: string, name: string): string => {
+  const filePath = buildPath(directory, name);
+  if (fs.existsSync(filePath)) {
     return filePath;
   }
 

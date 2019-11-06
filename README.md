@@ -36,7 +36,8 @@ USAGE
   $ sl-scripts build
 
 OPTIONS
-  --verbose  moar logs
+  -d, --directory=directory  [default: ./] the directory to build
+  --verbose                  moar logs
 
 EXAMPLES
   $ sl-scripts build
@@ -54,7 +55,8 @@ USAGE
   $ sl-scripts build:typedoc
 
 OPTIONS
-  --verbose  moar logs
+  -d, --directory=directory  [default: ./] the directory to build
+  --verbose                  moar logs
 
 EXAMPLE
   $ sl-scripts build:tsdoc

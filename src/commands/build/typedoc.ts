@@ -17,10 +17,17 @@ export default class BuildTypedocCommand extends Command {
       description: 'moar logs',
       required: false,
     }),
+
+    directory: flagHelpers.string({
+      char: 'd',
+      description: 'the directory to build',
+      default: './',
+    }),
   };
 
   public async run() {
     const parsed = this.parse(BuildTypedocCommand);
+    const directory = parsed.flags.directory || './';
 
     const commands = [];
 
@@ -35,7 +42,7 @@ export default class BuildTypedocCommand extends Command {
           '--excludePrivate': `--excludePrivate`,
           '--excludeProtected': `--excludeProtected`,
           '--hideGenerator': `--hideGenerator`,
-          '--tsconfig': `--tsconfig ${getConfigFilePath('tsconfig.build.json')}`,
+          '--tsconfig': `--tsconfig ${getConfigFilePath(directory, 'tsconfig.build.json')}`,
         },
         rawArgs: parsed.raw,
         flags: Object.keys(BuildTypedocCommand.flags),
