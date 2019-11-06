@@ -44,7 +44,7 @@ EXAMPLES
   $ sl-scripts build:typedoc
 ```
 
-_See code: [dist/commands/build/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/index.ts)_
+_See code: [dist/commands/build/index.ts](https://github.com/stoplightio/scripts/blob/v5.2.0-beta.0/dist/commands/build/index.ts)_
 
 ## `sl-scripts build:typedoc`
 
@@ -62,7 +62,7 @@ EXAMPLE
   $ sl-scripts build:tsdoc
 ```
 
-_See code: [dist/commands/build/typedoc.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/typedoc.ts)_
+_See code: [dist/commands/build/typedoc.ts](https://github.com/stoplightio/scripts/blob/v5.2.0-beta.0/dist/commands/build/typedoc.ts)_
 
 ## `sl-scripts create:lib`
 
@@ -76,7 +76,7 @@ EXAMPLE
   $ sl-scripts create:lib
 ```
 
-_See code: [dist/commands/create/lib.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/create/lib.ts)_
+_See code: [dist/commands/create/lib.ts](https://github.com/stoplightio/scripts/blob/v5.2.0-beta.0/dist/commands/create/lib.ts)_
 
 ## `sl-scripts help [COMMAND]`
 
@@ -111,7 +111,7 @@ EXAMPLES
   $ sl-scripts release:docs
 ```
 
-_See code: [dist/commands/release/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/index.ts)_
+_See code: [dist/commands/release/index.ts](https://github.com/stoplightio/scripts/blob/v5.2.0-beta.0/dist/commands/release/index.ts)_
 
 ## `sl-scripts release:docs`
 
@@ -129,7 +129,7 @@ EXAMPLE
   $ sl-scripts release:docs
 ```
 
-_See code: [dist/commands/release/docs.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/docs.ts)_
+_See code: [dist/commands/release/docs.ts](https://github.com/stoplightio/scripts/blob/v5.2.0-beta.0/dist/commands/release/docs.ts)_
 <!-- commandsstop -->
 
 # Overriding Configs
