@@ -1,4 +1,4 @@
-const typescript = require('rollup-plugin-typescript2');
+const typescript = require('@rollup/plugin-typescript');
 const { terser } = require('rollup-plugin-terser');
 const path = require('path');
 const fs = require('fs');
@@ -17,7 +17,7 @@ module.exports = {
   input: path.resolve(BASE_PATH, 'src/index.ts'),
   plugins: [
     typescript({
-      tsconfig: getConfigFile('tsconfig.json'),
+      tsconfig: getConfigFile('tsconfig.build.json'),
       include: ['src/**/*.{ts,tsx}'],
     }),
     terser(),
