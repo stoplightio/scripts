@@ -24,16 +24,18 @@ export default class BuildCommand extends Command {
     }),
   };
 
-  protected get command() {
+  protected get commands() {
     const parsed = this.parse(BuildCommand);
 
-    return buildCommand('tsc', {
-      defaultArgs: {
-        '--project': `--project ${getConfigFilePath('tsconfig.build.json')}`,
-      },
-      rawArgs: parsed.raw,
-      flags: Object.keys(BuildCommand.flags),
-    });
+    return [
+      buildCommand('tsc', {
+        defaultArgs: {
+          '--project': `--project ${getConfigFilePath('tsconfig.build.json')}`,
+        },
+        rawArgs: parsed.raw,
+        flags: Object.keys(BuildCommand.flags),
+      }),
+    ];
   }
 
   public async run() {
@@ -41,7 +43,7 @@ export default class BuildCommand extends Command {
 
     const parsed = this.parse(BuildCommand);
 
-    const commands = [`${buildCommand('rimraf')} dist`, this.command];
+    const commands = [`${buildCommand('rimraf')} dist`, ...this.commands];
 
     if (parsed.flags.verbose) {
       this.log(`commands:`);

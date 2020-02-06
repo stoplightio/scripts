@@ -6,13 +6,16 @@ export default class BundleCommand extends BuildCommand {
 
   public static examples = [`$ sl-scripts bundle`];
 
-  protected get command() {
+  protected get commands() {
     const parsed = this.parse(BundleCommand);
 
-    return buildCommand(`rollup --config ${getConfigFilePath('rollup.config.js')}`, {
-      rawArgs: parsed.raw,
-      flags: Object.keys(BundleCommand.flags),
-    });
+    return [
+      buildCommand(`rollup --config ${getConfigFilePath('rollup.config.js')}`, {
+        rawArgs: parsed.raw,
+        flags: Object.keys(BundleCommand.flags),
+      }),
+      buildCommand(`tsc --declaration --emitDeclarationOnly -p ${getConfigFilePath('tsconfig.build.json')}`),
+    ];
   }
 
   protected preparePackageJson() {
