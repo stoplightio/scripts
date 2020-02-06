@@ -25,6 +25,7 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   \\"scripts\\": {
     \\"build\\": \\"sl-scripts build\\",
     \\"build.docs\\": \\"build-storybook -c .storybook -o docs-auto\\",
+    \\"bundle\\": \\"sl-scripts bundle\\",
     \\"commit\\": \\"git-cz\\",
     \\"lint\\": \\"tslint -c tslint.json 'src/**/*.{ts,tsx}' -p tsconfig.json\\",
     \\"lint.fix\\": \\"yarn lint --fix\\",
@@ -126,6 +127,7 @@ exports[`sl-scripts create:lib createPackage should create the right object for 
   },
   \\"scripts\\": {
     \\"build\\": \\"sl-scripts build\\",
+    \\"bundle\\": \\"sl-scripts bundle\\",
     \\"commit\\": \\"git-cz\\",
     \\"lint\\": \\"tslint -c tslint.json 'src/**/*.{ts,tsx}' -p tsconfig.json\\",
     \\"lint.fix\\": \\"yarn lint --fix\\",
