@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "sl-scripts build",
+    "bundle": "sl-scripts bundle",
     "commit": "git-cz",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' -p tsconfig.json",
     "lint.fix": "yarn lint --fix",

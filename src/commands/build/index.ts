@@ -11,9 +11,9 @@ const _pick = require('lodash/pick');
 export default class BuildCommand extends Command {
   public static strict = false;
 
-  public static description = 'Builds src or docs.';
+  public static description = 'Build source code';
 
-  public static examples = [`$ sl-scripts build`, `$ sl-scripts build:typedoc`];
+  public static examples = [`$ sl-scripts build`];
 
   public static args = [];
 
@@ -24,21 +24,26 @@ export default class BuildCommand extends Command {
     }),
   };
 
+  protected get commands() {
+    const parsed = this.parse(BuildCommand);
+
+    return [
+      buildCommand('tsc', {
+        defaultArgs: {
+          '--project': `--project ${getConfigFilePath('tsconfig.build.json')}`,
+        },
+        rawArgs: parsed.raw,
+        flags: Object.keys(BuildCommand.flags),
+      }),
+    ];
+  }
+
   public async run() {
     cli.action.start('building...', undefined, { stdout: true });
 
     const parsed = this.parse(BuildCommand);
 
-    const commands = [];
-
-    commands.push(`${buildCommand('rimraf')} dist`);
-
-    commands.push(
-      buildCommand(`rollup --config ${getConfigFilePath('rollup.config.js')}`, {
-        rawArgs: parsed.raw,
-        flags: Object.keys(BuildCommand.flags),
-      }),
-    );
+    const commands = [`${buildCommand('rimraf')} dist`, ...this.commands];
 
     if (parsed.flags.verbose) {
       this.log(`commands:`);
@@ -56,17 +61,15 @@ export default class BuildCommand extends Command {
     this.postPublish();
   }
 
-  public postPublish() {
-    cli.action.start('copying extra files to dist folder...', undefined, {
-      stdout: true,
-    });
-
+  protected preparePackageJson() {
     const pkg = JSON.parse(fs.readFileSync(buildPath('package.json')) as any);
+
     const releasePkg = _pick(pkg, [
       'name',
       'version',
       'description',
       'keywords',
+      'main',
       'typings',
       'sideEffects',
       'files',
@@ -80,11 +83,20 @@ export default class BuildCommand extends Command {
       'pkg',
     ]);
 
-    releasePkg.main = 'index.cjs.js';
-    releasePkg.module = 'index.es.js';
+    releasePkg.main = 'index.js';
     if (!('typings' in releasePkg)) {
       releasePkg.typings = 'index.d.ts';
     }
+
+    return releasePkg;
+  }
+
+  public postPublish() {
+    cli.action.start('copying extra files ot dist folder...', undefined, {
+      stdout: true,
+    });
+
+    const releasePkg = this.preparePackageJson();
 
     // Convert any yalced dependencies (local "file:" dependencies) into proper bundledDependencies before publishing
     for (const [name, version] of Object.entries(releasePkg.dependencies as { [key: string]: string })) {

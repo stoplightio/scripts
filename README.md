@@ -21,6 +21,7 @@ npx @stoplight/scripts create:lib
 
 <!-- commands -->
 * [`sl-scripts build`](#sl-scripts-build)
+* [`sl-scripts bundle`](#sl-scripts-bundle)
 * [`sl-scripts create:lib`](#sl-scripts-createlib)
 * [`sl-scripts help [COMMAND]`](#sl-scripts-help-command)
 * [`sl-scripts release`](#sl-scripts-release)
@@ -28,7 +29,7 @@ npx @stoplight/scripts create:lib
 
 ## `sl-scripts build`
 
-Builds src or docs.
+Build source code
 
 ```
 USAGE
@@ -37,12 +38,28 @@ USAGE
 OPTIONS
   --verbose  moar logs
 
-EXAMPLES
+EXAMPLE
   $ sl-scripts build
-  $ sl-scripts build:typedoc
 ```
 
 _See code: [dist/commands/build/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/index.ts)_
+
+## `sl-scripts bundle`
+
+Bundle source code
+
+```
+USAGE
+  $ sl-scripts bundle
+
+OPTIONS
+  --verbose  moar logs
+
+EXAMPLE
+  $ sl-scripts bundle
+```
+
+_See code: [dist/commands/bundle/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/bundle/index.ts)_
 
 ## `sl-scripts create:lib`
 
