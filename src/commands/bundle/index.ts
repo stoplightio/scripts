@@ -11,9 +11,9 @@ const _pick = require('lodash/pick');
 export default class BuildCommand extends Command {
   public static strict = false;
 
-  public static description = 'Builds soure code';
+  public static description = 'Bundle source code';
 
-  public static examples = [`$ sl-scripts build`];
+  public static examples = [`$ sl-scripts bundle`];
 
   public static args = [];
 
@@ -25,7 +25,7 @@ export default class BuildCommand extends Command {
   };
 
   public async run() {
-    cli.action.start('building...', undefined, { stdout: true });
+    cli.action.start('bundling...', undefined, { stdout: true });
 
     const parsed = this.parse(BuildCommand);
 
@@ -34,13 +34,10 @@ export default class BuildCommand extends Command {
     commands.push(`${buildCommand('rimraf')} dist`);
 
     commands.push(
-      buildCommand('tsc', {
-        defaultArgs: {
-          '--project': `--project ${getConfigFilePath('tsconfig.build.json')}`,
-        },
+      buildCommand(`rollup --config ${getConfigFilePath('rollup.config.js')}`, {
         rawArgs: parsed.raw,
         flags: Object.keys(BuildCommand.flags),
-      })
+      }),
     );
 
     if (parsed.flags.verbose) {
@@ -60,7 +57,7 @@ export default class BuildCommand extends Command {
   }
 
   public postPublish() {
-    cli.action.start('copying extra files ot dist folder...', undefined, {
+    cli.action.start('copying extra files to dist folder...', undefined, {
       stdout: true,
     });
 
@@ -70,7 +67,6 @@ export default class BuildCommand extends Command {
       'version',
       'description',
       'keywords',
-      'main',
       'typings',
       'sideEffects',
       'files',
@@ -84,7 +80,8 @@ export default class BuildCommand extends Command {
       'pkg',
     ]);
 
-    releasePkg.main = 'index.js';
+    releasePkg.main = 'index.cjs.js';
+    releasePkg.module = 'index.es.js';
     if (!('typings' in releasePkg)) {
       releasePkg.typings = 'index.d.ts';
     }
