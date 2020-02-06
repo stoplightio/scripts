@@ -36,7 +36,7 @@
     ]
   },
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=10.2"
   },
   "bin": {
     "sl-scripts": "./bin/run"
