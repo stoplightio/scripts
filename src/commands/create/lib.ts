@@ -76,7 +76,6 @@ export default class CreateLibCommand extends Command {
 
     if (shell.test('-e', targetDir)) {
       this.error(`'${targetDir}' directory already exists. Cannot create library.`);
-      return;
     }
 
     this.writeScaffold(targetDir);
