@@ -2,6 +2,8 @@ import { buildCommand, getConfigFilePath } from '../../utils';
 import BuildCommand from '../build';
 
 export default class BundleCommand extends BuildCommand {
+  public static strict = false;
+
   public static description = 'Bundle source code';
 
   public static examples = [`$ sl-scripts bundle`];
