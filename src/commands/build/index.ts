@@ -77,9 +77,12 @@ export default class BuildCommand extends Command {
       'repository',
       'license',
       'engines',
+      'browser',
       'optionalDependencies',
       'peerDependencies',
+      'peerDependenciesMeta',
       'dependencies',
+      'dependenciesMeta',
       'pkg',
     ]);
 
