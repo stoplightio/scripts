@@ -120,7 +120,10 @@ export default class BuildCommand extends Command {
 
     fs.writeFileSync(buildPath('dist', 'package.json'), JSON.stringify(releasePkg, null, 2));
     fs.copyFileSync(buildPath('README.md'), buildPath('dist', 'README.md'));
-    fs.copyFileSync(buildPath('LICENSE'), buildPath('dist', 'LICENSE'));
+    const licenseSourcePath = buildPath('LICENSE');
+    if (fs.existsSync(licenseSourcePath)) {
+      fs.copyFileSync(licenseSourcePath, buildPath('dist', 'LICENSE'));
+    }
 
     cli.action.stop();
   }
