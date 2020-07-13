@@ -11,7 +11,7 @@ export const buildCommand = (
     flags = [],
   }: { defaultArgs?: any; rawArgs?: ParsingToken[]; flags?: string[] } = {},
 ) => {
-  let command = path.resolve(process.cwd(), 'node_modules', '.bin', baseCommand);
+  let command = baseCommand;
 
   for (const arg of rawArgs) {
     if (!flags.includes(arg.input.substring(2))) command += ` ${arg.input}`;
