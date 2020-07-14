@@ -119,11 +119,18 @@ export default class BuildCommand extends Command {
     }
 
     fs.writeFileSync(buildPath('dist', 'package.json'), JSON.stringify(releasePkg, null, 2));
-    fs.copyFileSync(buildPath('README.md'), buildPath('dist', 'README.md'));
+    const readmeSourcePath = buildPath('README.md');
     const licenseSourcePath = buildPath('LICENSE');
-    if (fs.existsSync(licenseSourcePath)) {
-      fs.copyFileSync(licenseSourcePath, buildPath('dist', 'LICENSE'));
+
+    if (!fs.existsSync(readmeSourcePath)) {
+      cli.error("A README.md file is mandatory");
     }
+    if (!fs.existsSync(licenseSourcePath)) {
+      cli.error("A LICENSE file is mandatory");
+    }
+
+    fs.copyFileSync(readmeSourcePath, buildPath('dist', 'README.md'));
+    fs.copyFileSync(licenseSourcePath, buildPath('dist', 'LICENSE'));
 
     cli.action.stop();
   }
