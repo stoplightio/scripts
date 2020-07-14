@@ -102,6 +102,7 @@
     "commitizen": "4.0.3",
     "cz-conventional-changelog": "3.1.x",
     "esm": "^3.2.25",
+    "find-up": "^4.1.0",
     "husky": "4.2.3",
     "inquirer": "7.0.4",
     "lint-staged": "10.0.7",
