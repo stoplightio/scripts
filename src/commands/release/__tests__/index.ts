@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as utils from '../../../utils';
 import BuildCommand from '../index';
 
+const origCwd = process.cwd();
 const cwd = () => path.resolve(__dirname, 'fixtures');
 
 describe('sl-scripts release', () => {
@@ -17,8 +18,8 @@ describe('sl-scripts release', () => {
 
   afterEach(() => jest.restoreAllMocks());
 
-  it('should use the semantic-release binary in node modules', async () => {
+  it('should use the semantic-release in node_modules', async () => {
     await BuildCommand.run();
-    expect(shellCommands).toEqual([path.resolve(cwd(), 'node_modules', '.bin', 'semantic-release')]);
+    expect(shellCommands).toEqual([path.resolve(origCwd, 'node_modules', '.bin', 'semantic-release')]);
   });
 });

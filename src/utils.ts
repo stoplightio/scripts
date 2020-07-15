@@ -1,5 +1,6 @@
 import { ParsingToken } from '@oclif/parser/lib/parse';
 import { execSync } from 'child_process';
+import * as findUp from 'find-up';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -11,7 +12,9 @@ export const buildCommand = (
     flags = [],
   }: { defaultArgs?: any; rawArgs?: ParsingToken[]; flags?: string[] } = {},
 ) => {
-  let command = path.resolve(process.cwd(), 'node_modules', '.bin', baseCommand);
+  // TODO: use matcher function to match baseCommand.cmd for Windows?
+  let command = findUp.sync(path.join('node_modules', '.bin', baseCommand), { cwd: process.cwd() });
+  if (!command) throw new Error(`Unable to locate node_modules/.bin binary for ${baseCommand}`);
 
   for (const arg of rawArgs) {
     if (!flags.includes(arg.input.substring(2))) command += ` ${arg.input}`;
