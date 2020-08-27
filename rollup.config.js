@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 
 const BASE_PATH = process.cwd();
-const getConfigFile = (name) => {
+const getConfigFile = name => {
   const filePath = path.resolve(BASE_PATH, name);
   if (fs.existsSync(path.resolve(BASE_PATH, name))) {
     return filePath;
@@ -25,11 +25,11 @@ module.exports = {
   output: [
     {
       file: path.resolve(BASE_PATH, 'dist/index.cjs.js'),
-      format: 'cjs'
+      format: 'cjs',
     },
     {
       file: path.resolve(BASE_PATH, 'dist/index.es.js'),
-      format: 'esm'
+      format: 'esm',
     },
   ],
 };

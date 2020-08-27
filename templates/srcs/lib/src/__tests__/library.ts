@@ -7,7 +7,7 @@ describe('library', () => {
     library = new Library();
   });
 
-  test('should work', () => {
+  it('should work', () => {
     expect(library.run()).toEqual(true);
   });
 });

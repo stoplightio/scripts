@@ -1,12 +1,14 @@
 # @stoplight/scripts
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/2628d0fe95cf3abae711/maintainability)](https://codeclimate.com/github/stoplightio/scripts/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/2628d0fe95cf3abae711/test_coverage)](https://codeclimate.com/github/stoplightio/scripts/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2628d0fe95cf3abae711/maintainability)](https://codeclimate.com/github/stoplightio/scripts/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2628d0fe95cf3abae711/test_coverage)](https://codeclimate.com/github/stoplightio/scripts/test_coverage)
 
 <!-- toc -->
-* [@stoplight/scripts](#stoplightscripts)
-* [Usage](#usage)
-* [Commands](#commands)
-* [Overriding Configs](#overriding-configs)
+
+- [@stoplight/scripts](#stoplightscripts)
+- [Usage](#usage)
+- [Commands](#commands)
+- [Overriding Configs](#overriding-configs)
 <!-- tocstop -->
 
 # Usage
@@ -20,12 +22,13 @@ npx @stoplight/scripts create:lib
 # Commands
 
 <!-- commands -->
-* [`sl-scripts build`](#sl-scripts-build)
-* [`sl-scripts bundle`](#sl-scripts-bundle)
-* [`sl-scripts create:lib`](#sl-scripts-createlib)
-* [`sl-scripts help [COMMAND]`](#sl-scripts-help-command)
-* [`sl-scripts release`](#sl-scripts-release)
-* [`sl-scripts release:docs`](#sl-scripts-releasedocs)
+
+- [`sl-scripts build`](#sl-scripts-build)
+- [`sl-scripts bundle`](#sl-scripts-bundle)
+- [`sl-scripts create:lib`](#sl-scripts-createlib)
+- [`sl-scripts help [COMMAND]`](#sl-scripts-help-command)
+- [`sl-scripts release`](#sl-scripts-release)
+- [`sl-scripts release:docs`](#sl-scripts-releasedocs)
 
 ## `sl-scripts build`
 
@@ -42,7 +45,8 @@ EXAMPLE
   $ sl-scripts build
 ```
 
-_See code: [dist/commands/build/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/index.ts)_
+_See code:
+[dist/commands/build/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/index.ts)_
 
 ## `sl-scripts bundle`
 
@@ -59,7 +63,8 @@ EXAMPLE
   $ sl-scripts bundle
 ```
 
-_See code: [dist/commands/bundle/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/bundle/index.ts)_
+_See code:
+[dist/commands/bundle/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/bundle/index.ts)_
 
 ## `sl-scripts create:lib`
 
@@ -73,7 +78,8 @@ EXAMPLE
   $ sl-scripts create:lib
 ```
 
-_See code: [dist/commands/create/lib.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/create/lib.ts)_
+_See code:
+[dist/commands/create/lib.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/create/lib.ts)_
 
 ## `sl-scripts help [COMMAND]`
 
@@ -108,7 +114,8 @@ EXAMPLES
   $ sl-scripts release:docs
 ```
 
-_See code: [dist/commands/release/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/index.ts)_
+_See code:
+[dist/commands/release/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/index.ts)_
 
 ## `sl-scripts release:docs`
 
@@ -126,7 +133,9 @@ EXAMPLE
   $ sl-scripts release:docs
 ```
 
-_See code: [dist/commands/release/docs.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/docs.ts)_
+_See code:
+[dist/commands/release/docs.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/docs.ts)_
+
 <!-- commandsstop -->
 
 # Overriding Configs
@@ -138,7 +147,7 @@ Simply create a `jest.config.js` file in the root of your project, and extend th
 ```js
 // ./jest.config.js
 module.exports = {
-  preset: "@stoplight/scripts"
+  preset: '@stoplight/scripts',
 };
 ```
 
@@ -165,7 +174,7 @@ Simply create a `.eslintrc.js` file in the root of your project, and extend the 
 // ./eslintrc.js
 module.exports = {
   extends: ['@stoplight'],
-}
+};
 ```
 
 ## Semantic Release
@@ -178,10 +187,7 @@ Simply add a `release` property to your `package.json` file. For example:
   // ... props
   "release": {
     "pkgRoot": "dist",
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator"
-    ]
+    "plugins": ["@semantic-release/commit-analyzer", "@semantic-release/release-notes-generator"]
   }
   // ... props
 }
