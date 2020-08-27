@@ -157,14 +157,14 @@ Simply create a `tsconfig.json` file in the root of your project, and extend the
 }
 ```
 
-## TSLint
+## ESLint
 
-Simply create a `tslint.json` file in the root of your project, and extend the default config. For example:
+Simply create a `.eslintrc.js` file in the root of your project, and extend the default config. For example:
 
-```json
-// ./tslint.json
-{
-  "extends": ["@stoplight/scripts/tslint.json"]
+```js
+// ./eslintrc.js
+module.exports = {
+  extends: ['@stoplight'],
 }
 ```
 
