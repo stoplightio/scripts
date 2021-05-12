@@ -13,8 +13,16 @@ export const buildCommand = (
   }: { defaultArgs?: any; rawArgs?: ParsingToken[]; flags?: string[] } = {},
 ) => {
   // TODO: use matcher function to match baseCommand.cmd for Windows?
-  let command = findUp.sync(path.join('node_modules', '.bin', baseCommand), { cwd: process.cwd() });
-  if (!command) throw new Error(`Unable to locate node_modules/.bin binary for ${baseCommand}`);
+
+  // pull binary off the front, append rest of args back later
+  const [binary, ...commandArgs] = baseCommand.split(' ');
+
+  let command = findUp.sync(path.join('node_modules', '.bin', binary), {
+    cwd: process.cwd(),
+  });
+  if (!command) throw new Error(`Unable to locate node_modules/.bin binary for ${binary}`);
+
+  command = [command, ...commandArgs].join(' ');
 
   for (const arg of rawArgs) {
     if (!flags.includes(arg.input.substring(2))) command += ` ${arg.input}`;
