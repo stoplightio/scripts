@@ -38,6 +38,7 @@ export default class BundleCommand extends BuildCommand {
         }),
         flags: Object.keys(BundleCommand.flags),
       }),
+      buildCommand(`tsc -p tsconfig.build.json --emitDeclarationOnly --declaration --declarationDir dist`),
     ];
   }
 
