@@ -1,7 +1,7 @@
 import { flags as flagHelpers } from '@oclif/command';
 import * as fs from 'fs';
 
-import { buildCommand, buildPath, getConfigFilePath, } from '../../utils';
+import { buildCommand, buildPath, getConfigFilePath } from '../../utils';
 import BuildCommand from '../build';
 
 export default class BundleCommand extends BuildCommand {
