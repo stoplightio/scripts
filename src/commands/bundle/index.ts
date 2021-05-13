@@ -44,10 +44,11 @@ export default class BundleCommand extends BuildCommand {
   protected preparePackageJson() {
     const pkg = super.preparePackageJson();
     Object.assign(pkg, {
-      main: './index.cjs',
+      type: 'commonjs',
+      main: './index.js',
       module: './index.mjs',
       exports: {
-        require: './index.cjs',
+        require: './index.js',
         import: './index.mjs',
       },
     });

@@ -30,7 +30,7 @@ module.exports = [
   {
     input: path.resolve(BASE_PATH, 'src/index.ts'),
     output: {
-      entryFileNames: '[name].cjs',
+      entryFileNames: '[name].js',
       dir: path.resolve(BASE_PATH, 'dist'),
       format: 'cjs',
     },
