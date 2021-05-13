@@ -53,6 +53,7 @@ USAGE
   $ sl-scripts bundle
 
 OPTIONS
+  --minify   minify output using terser
   --verbose  moar logs
 
 EXAMPLE

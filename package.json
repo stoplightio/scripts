@@ -66,8 +66,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}$": [
-      "yarn lint.fix",
-      "git add"
+      "yarn lint.fix"
     ]
   },
   "husky": {
@@ -92,7 +91,8 @@
     "@oclif/command": "1.5.19",
     "@oclif/config": "1.14.0",
     "@oclif/plugin-help": "2.2.3",
-    "@rollup/plugin-typescript": "^3.0.0",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-json": "^4.1.0",
     "@semantic-release/commit-analyzer": "8.0.1",
     "@semantic-release/git": "9.0.0",
     "@semantic-release/github": "7.0.3",
@@ -107,11 +107,12 @@
     "inquirer": "7.0.4",
     "lint-staged": "10.0.7",
     "rimraf": "3.0.2",
-    "rollup": "^1.31.1",
-    "rollup-plugin-terser": "^5.2.0",
+    "rollup": "^2.47.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
     "semantic-release": "17.0.3",
     "shelljs": "0.8.x",
-    "tslib": "1.10.0"
+    "tslib": "^2.2.0"
   },
   "devDependencies": {
     "@oclif/dev-cli": "1.22.2",
