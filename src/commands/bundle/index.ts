@@ -1,5 +1,7 @@
 import { flags as flagHelpers } from '@oclif/command';
-import { buildCommand, getConfigFilePath } from '../../utils';
+import * as fs from 'fs';
+
+import { buildCommand, buildPath, getConfigFilePath, } from '../../utils';
 import BuildCommand from '../build';
 
 export default class BundleCommand extends BuildCommand {
@@ -44,15 +46,25 @@ export default class BundleCommand extends BuildCommand {
 
   protected preparePackageJson() {
     const pkg = super.preparePackageJson();
+
     Object.assign(pkg, {
       type: 'commonjs',
       main: './index.js',
-      module: './index.mjs',
+      // webpack v4 support
+      module: './index.ejs',
       exports: {
         require: './index.js',
         import: './index.mjs',
       },
     });
+
     return pkg;
+  }
+
+  public postPublish() {
+    // webpack v4 support
+    fs.copyFileSync(buildPath('dist', 'index.mjs'), buildPath('dist', 'index.ejs'));
+
+    super.postPublish();
   }
 }
