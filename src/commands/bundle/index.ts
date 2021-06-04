@@ -51,7 +51,7 @@ export default class BundleCommand extends BuildCommand {
       type: 'commonjs',
       main: './index.js',
       // webpack v4 support
-      module: './index.ejs',
+      module: './index.esm.js',
       exports: {
         require: './index.js',
         import: './index.mjs',
@@ -63,7 +63,7 @@ export default class BundleCommand extends BuildCommand {
 
   public postPublish() {
     // webpack v4 support
-    fs.copyFileSync(buildPath('dist', 'index.mjs'), buildPath('dist', 'index.ejs'));
+    fs.copyFileSync(buildPath('dist', 'index.mjs'), buildPath('dist', 'index.esm.js'));
 
     super.postPublish();
   }
