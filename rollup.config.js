@@ -28,8 +28,8 @@ const plugins = () =>
 
 const packageJson = JSON.parse(fs.readFileSync(path.resolve(BASE_PATH, 'package.json'), { encoding: 'utf-8' }));
 const dependencies = [
-  ...Object.keys(packageJson.dependencies ?? {}),
-  ...Object.keys(packageJson.peerDependencies ?? {}),
+  ...Object.keys(packageJson.dependencies || {}),
+  ...Object.keys(packageJson.peerDependencies || {}),
 ];
 const external = module => dependencies.some(dep => module === dep || module.startsWith(`${dep}/`));
 
