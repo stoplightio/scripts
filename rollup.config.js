@@ -14,7 +14,7 @@ const getConfigFile = name => {
     return filePath;
   }
 
-  return path.resolve(BASE_PATH, 'node_modules', '@stoplight', 'scripts', name);
+  return require.resolve(`@stoplight/scripts/${name}`);
 };
 
 const plugins = () =>
