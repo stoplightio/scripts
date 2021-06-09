@@ -26,6 +26,13 @@ const plugins = () =>
     process.env.MINIFY ? terser() : null,
   ].filter(Boolean);
 
+const packageJson = JSON.parse(fs.readFileSync(path.resolve(BASE_PATH, 'package.json'), { encoding: 'utf-8' }));
+const dependencies = [
+  ...Object.keys(packageJson.dependencies ?? {}),
+  ...Object.keys(packageJson.peerDependencies ?? {}),
+];
+const external = module => dependencies.some(dep => module === dep || module.startsWith(`${dep}/`));
+
 module.exports = [
   {
     input: path.resolve(BASE_PATH, 'src/index.ts'),
@@ -35,6 +42,7 @@ module.exports = [
       format: 'cjs',
     },
     plugins: [json(), commonjs(), ...plugins()],
+    external
   },
   {
     input: path.resolve(BASE_PATH, 'src/index.ts'),
@@ -44,5 +52,6 @@ module.exports = [
       format: 'esm',
     },
     plugins: plugins(),
+    external,
   },
 ];
