@@ -32,7 +32,7 @@ jobs:
 
   parametric_test:
     parameters:
-      repostitory:
+      repository:
         type: string
       node-version:
         type: executor
