@@ -39,6 +39,8 @@ jobs:
     executor: << parameters.node-version >>
     steps:
       - checkout
+      - run: yarn
+      - run: yarn build
       - run: ./test/testing-script.sh << parameters.repository >>
 
   release:
