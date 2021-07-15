@@ -38,6 +38,7 @@ jobs:
         type: executor
     executor: << parameters.node-version >>
     steps:
+      - checkout
       - run: ./test/testing-script.sh << parameters.repository >>
 
   release:
