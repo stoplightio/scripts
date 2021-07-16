@@ -1,4 +1,12 @@
-version: 2
+version: 2.1
+
+executors:
+  node12:
+    docker:
+      - image: circleci/node:12
+  node14:
+    docker:
+      - image: circleci/node:14
 
 jobs:
   test_node_10:
@@ -22,6 +30,19 @@ jobs:
           command: |
             ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
 
+  test_build_on_repository:
+    parameters:
+      repository:
+        type: string
+      node-version:
+        type: executor
+    executor: << parameters.node-version >>
+    steps:
+      - checkout
+      - run: yarn
+      - run: yarn build
+      - run: ./test/test-build-on-repository.sh << parameters.repository >>
+
   release:
     docker:
       - image: circleci/node:10
@@ -35,6 +56,11 @@ workflows:
   version: 2
   test_and_release:
     jobs:
+      - test_build_on_repository:
+          matrix:
+            parameters:
+              node-version: [node12, node14]
+              repository: ["elements", "json", "markdown", "markdown-viewer", "json-schema-tree", "json-schema-viewer"]
       - test_node_10
       - release:
           filters:
