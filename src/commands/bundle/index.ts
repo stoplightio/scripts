@@ -47,15 +47,23 @@ export default class BundleCommand extends BuildCommand {
   protected preparePackageJson() {
     const pkg = super.preparePackageJson();
 
+    const exports = {
+      require: './index.js',
+      import: './index.mjs',
+    };
+
     Object.assign(pkg, {
       type: 'commonjs',
       main: './index.js',
       // webpack v4 support
       module: './index.esm.js',
-      exports: {
-        require: './index.js',
-        import: './index.mjs',
-      },
+      exports:
+        'exports' in pkg && typeof pkg.exports === 'object'
+          ? {
+              ...pkg.exports,
+              '.': exports,
+            }
+          : exports,
     });
 
     return pkg;
