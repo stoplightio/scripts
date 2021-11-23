@@ -139,7 +139,7 @@ Simply create a `jest.config.js` file in the root of your project, and extend th
 ```js
 // ./jest.config.js
 module.exports = {
-  preset: "@stoplight/scripts"
+  preset: "@stoplight/scripts",
 };
 ```
 
@@ -185,5 +185,19 @@ Simply add a `release` property to your `package.json` file. For example:
     ]
   }
   // ... props
+}
+```
+
+## Rollup
+
+By default all `dependencies` and `peerDependencies` declared in your `package.json` will be treated as external deps during `sl-scripts bundle`. If you would like to always bundle a dep, list those deps in your `package.json` file like so:
+
+```json
+{
+  "name": "your-package",
+  "version": "0.0.0",
+  "rollup": {
+    "bundleDeps": ["dep-1", "dep-2"]
+  }
 }
 ```
