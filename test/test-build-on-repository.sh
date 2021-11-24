@@ -2,6 +2,10 @@ Repository=$1
 
 echo Testing repository $Repository
 
+# clear out the scripts node_modules/yarn.lock to better represent real-world behavior of distributed npm package
+sudo rm -R node_modules
+sudo rm yarn.lock
+
 cd ../
 
 git clone git@github.com:stoplightio/$Repository.git
