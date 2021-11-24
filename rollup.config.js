@@ -5,6 +5,9 @@ const commonjs = require('@rollup/plugin-commonjs');
 const json = require('@rollup/plugin-json');
 const path = require('path');
 const fs = require('fs');
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
+
+const { optimizeLodashImports } = require('./vendor/rollup-plugin-optimize-lodash-imports/rollup-plugin/dist/index.js');
 
 const BASE_PATH = process.cwd();
 
@@ -23,6 +26,9 @@ const plugins = () =>
       tsconfig: getConfigFile('tsconfig.build.json'),
       useTsconfigDeclarationDir: true,
     }),
+    nodeResolve(),
+    commonjs(),
+    optimizeLodashImports(),
     process.env.MINIFY ? terser() : null,
   ].filter(Boolean);
 
@@ -31,7 +37,15 @@ const dependencies = [
   ...Object.keys(packageJson.dependencies || {}),
   ...Object.keys(packageJson.peerDependencies || {}),
 ];
-const external = module => dependencies.some(dep => module === dep || module.startsWith(`${dep}/`));
+const rollupConfig = packageJson.rollup || {};
+const alwaysInclude = rollupConfig.bundleDeps || [];
+
+const external = module => {
+  const isDefaultExternal = dependencies.some(dep => module === dep || module.startsWith(`${dep}/`));
+  const forceBundle = alwaysInclude.some(dep => module === dep || module.startsWith(`${dep}/`));
+
+  return isDefaultExternal && !forceBundle;
+};
 
 module.exports = [
   {
@@ -41,7 +55,7 @@ module.exports = [
       dir: path.resolve(BASE_PATH, 'dist'),
       format: 'cjs',
     },
-    plugins: [json(), commonjs(), ...plugins()],
+    plugins: [json(), ...plugins()],
     external
   },
   {
