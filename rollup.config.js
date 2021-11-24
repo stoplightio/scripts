@@ -41,7 +41,7 @@ const rollupConfig = packageJson.rollup || {};
 const alwaysInclude = rollupConfig.bundleDeps || [];
 
 const external = module => {
-  const isDefaultExternal =  dependencies.some(dep => module === dep || module.startsWith(`${dep}/`));
+  const isDefaultExternal = dependencies.some(dep => module === dep || module.startsWith(`${dep}/`));
   const forceBundle = alwaysInclude.some(dep => module === dep || module.startsWith(`${dep}/`));
 
   return isDefaultExternal && !forceBundle;
