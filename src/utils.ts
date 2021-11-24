@@ -45,7 +45,7 @@ export const runCommand = (command: string, { handleError = true } = {}) => {
     });
   } catch (error) {
     if (handleError) {
-      return process.exit((error as any).status);
+      return process.exit(error.status);
     } else {
       throw error;
     }
