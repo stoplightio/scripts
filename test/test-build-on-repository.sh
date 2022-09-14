@@ -12,9 +12,8 @@ git clone git@github.com:stoplightio/$Repository.git
 
 cd $Repository
 
-npx json -I -f package.json -e "this.resolutions={
-\"@stoplight/scripts\": \"file:../project\",
-}"
+tmp=$(mktemp)
+jq '.resolutions."@stoplight/scripts" = "file:../project"' package.json > "$tmp" && mv "$tmp" package.json
 
 yarn
 yarn build
