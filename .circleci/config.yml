@@ -1,17 +1,17 @@
 version: 2.1
 
 executors:
-  node14:
-    docker:
-      - image: circleci/node:14
   node16:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:16.20
+  node18:
+    docker:
+      - image: cimg/node:18.19
 
 jobs:
   test_node_lts:
     docker:
-      - image: circleci/node:lts
+      - image: cimg/node:lts
     steps:
       - checkout
       - run:
@@ -60,12 +60,11 @@ workflows:
           matrix:
             parameters:
               node-version:
-                - node14
-                - node16
+                - node18
               repository:
                 - json
-                - markdown
-                - markdown-viewer
+                # - markdown // private
+                # - markdown-viewer // private
                 - json-schema-tree
       - test_build_on_repository:
           matrix:
