@@ -107,7 +107,7 @@
     "esm": "^3.2.25",
     "estree-walker": "2.x",
     "find-up": "^4.1.0",
-    "husky": "4.2.3",
+    "husky": "4.3.7",
     "inquirer": "7.0.4",
     "lint-staged": "10.0.7",
     "magic-string": "0.25.x",
