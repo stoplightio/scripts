@@ -87,7 +87,7 @@
     ]
   },
   "dependencies": {
-    "@commitlint/cli": "8.3.6",
+    "@commitlint/cli": "17.0.0",
     "@commitlint/config-conventional": "8.3.4",
     "@oclif/command": "1.5.19",
     "@oclif/config": "1.14.0",
@@ -96,11 +96,11 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/pluginutils": "4.x",
-    "@semantic-release/commit-analyzer": "8.0.1",
+    "@semantic-release/commit-analyzer": "10.0.0",
     "@semantic-release/git": "9.0.0",
     "@semantic-release/github": "7.0.4",
     "@semantic-release/npm": "9.0.0",
-    "@semantic-release/release-notes-generator": "9.0.0",
+    "@semantic-release/release-notes-generator": "11.0.0",
     "cli-ux": "5.4.4",
     "commitizen": "~4.2.5",
     "cz-conventional-changelog": "3.1.x",
