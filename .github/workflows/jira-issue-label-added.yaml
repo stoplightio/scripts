@@ -6,14 +6,11 @@ name: Jira Issue Label Added
 # For comparison, see https://github.com/pact-foundation/pact_broker/blob/master/.github/workflows/smartbear-issue-label-added.yml
 # 
 
-# on:
-#   workflow_call:
-#     inputs:
-#       team-name:
-#         type: string
-
 on:
   workflow_call:
+    inputs:
+      team-name:
+        type: string
 
 jobs:
   create-issue-in-stoplight-jira:
@@ -22,6 +19,8 @@ jobs:
     steps:
     - name: Login
       uses: atlassian/gajira-login@v3
+      with:
+        team-name: ${{ inputs.team-name }}
       env:
         JIRA_BASE_URL: ${{ secrets.SMARTBEAR_JIRA_BASE_URL }}
         JIRA_USER_EMAIL: ${{ secrets.SMARTBEAR_JIRA_USER_EMAIL }}
