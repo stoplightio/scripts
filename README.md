@@ -1,13 +1,24 @@
 # @stoplight/scripts
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/2628d0fe95cf3abae711/maintainability)](https://codeclimate.com/github/stoplightio/scripts/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/2628d0fe95cf3abae711/test_coverage)](https://codeclimate.com/github/stoplightio/scripts/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2628d0fe95cf3abae711/maintainability)](https://codeclimate.com/github/stoplightio/scripts/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2628d0fe95cf3abae711/test_coverage)](https://codeclimate.com/github/stoplightio/scripts/test_coverage)
 
 <!-- toc -->
-* [@stoplight/scripts](#stoplightscripts)
-* [Usage](#usage)
-* [Commands](#commands)
-* [Overriding Configs](#overriding-configs)
-<!-- tocstop -->
+
+- [@stoplight/scripts](#stoplightscripts)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [`sl-scripts build`](#sl-scripts-build)
+  - [`sl-scripts bundle`](#sl-scripts-bundle)
+  - [`sl-scripts create:lib`](#sl-scripts-createlib)
+  - [`sl-scripts release`](#sl-scripts-release)
+  - [`sl-scripts release:docs`](#sl-scripts-releasedocs)
+- [Overriding Configs](#overriding-configs)
+  - [Jest](#jest)
+  - [TS](#ts)
+  - [Semantic Release](#semantic-release)
+  - [Rollup](#rollup)
+  <!-- tocstop -->
 
 # Usage
 
@@ -20,12 +31,20 @@ npx @stoplight/scripts create:lib
 # Commands
 
 <!-- commands -->
-* [`sl-scripts build`](#sl-scripts-build)
-* [`sl-scripts bundle`](#sl-scripts-bundle)
-* [`sl-scripts create:lib`](#sl-scripts-createlib)
-* [`sl-scripts help [COMMAND]`](#sl-scripts-help-command)
-* [`sl-scripts release`](#sl-scripts-release)
-* [`sl-scripts release:docs`](#sl-scripts-releasedocs)
+
+- [@stoplight/scripts](#stoplightscripts)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [`sl-scripts build`](#sl-scripts-build)
+  - [`sl-scripts bundle`](#sl-scripts-bundle)
+  - [`sl-scripts create:lib`](#sl-scripts-createlib)
+  - [`sl-scripts release`](#sl-scripts-release)
+  - [`sl-scripts release:docs`](#sl-scripts-releasedocs)
+- [Overriding Configs](#overriding-configs)
+  - [Jest](#jest)
+  - [TS](#ts)
+  - [Semantic Release](#semantic-release)
+  - [Rollup](#rollup)
 
 ## `sl-scripts build`
 
@@ -33,16 +52,20 @@ Build source code
 
 ```
 USAGE
-  $ sl-scripts build
+  $ sl-scripts build [--verbose]
 
-OPTIONS
+FLAGS
   --verbose  moar logs
 
-EXAMPLE
+DESCRIPTION
+  Build source code
+
+EXAMPLES
   $ sl-scripts build
 ```
 
-_See code: [dist/commands/build/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/build/index.ts)_
+_See code:
+[src/commands/build/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/src/commands/build/index.ts)_
 
 ## `sl-scripts bundle`
 
@@ -50,17 +73,21 @@ Bundle source code
 
 ```
 USAGE
-  $ sl-scripts bundle
+  $ sl-scripts bundle [--minify] [--verbose]
 
-OPTIONS
+FLAGS
   --minify   minify output using terser
   --verbose  moar logs
 
-EXAMPLE
+DESCRIPTION
+  Bundle source code
+
+EXAMPLES
   $ sl-scripts bundle
 ```
 
-_See code: [dist/commands/bundle/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/bundle/index.ts)_
+_See code:
+[src/commands/bundle/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/src/commands/bundle/index.ts)_
 
 ## `sl-scripts create:lib`
 
@@ -70,28 +97,14 @@ Scaffold out a new library.
 USAGE
   $ sl-scripts create:lib
 
-EXAMPLE
+DESCRIPTION
+  Scaffold out a new library.
+
+EXAMPLES
   $ sl-scripts create:lib
 ```
 
-_See code: [dist/commands/create/lib.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/create/lib.ts)_
-
-## `sl-scripts help [COMMAND]`
-
-display help for sl-scripts
-
-```
-USAGE
-  $ sl-scripts help [COMMAND]
-
-ARGUMENTS
-  COMMAND  command to show help for
-
-OPTIONS
-  --all  see all commands in CLI
-```
-
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
+_See code: [src/commands/create/lib.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/src/commands/create/lib.ts)_
 
 ## `sl-scripts release`
 
@@ -99,17 +112,22 @@ Publish new src or docs release.
 
 ```
 USAGE
-  $ sl-scripts release
+  $ sl-scripts release [--verbose]
 
-OPTIONS
+FLAGS
   --verbose  moar logs
+
+DESCRIPTION
+  Publish new src or docs release.
 
 EXAMPLES
   $ sl-scripts release
+
   $ sl-scripts release:docs
 ```
 
-_See code: [dist/commands/release/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/index.ts)_
+_See code:
+[src/commands/release/index.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/src/commands/release/index.ts)_
 
 ## `sl-scripts release:docs`
 
@@ -117,17 +135,22 @@ Push built docs to github pages.
 
 ```
 USAGE
-  $ sl-scripts release:docs
+  $ sl-scripts release:docs [--dry-run] [--verbose]
 
-OPTIONS
+FLAGS
   --dry-run  run the release process but do not publish
   --verbose  moar logs
 
-EXAMPLE
+DESCRIPTION
+  Push built docs to github pages.
+
+EXAMPLES
   $ sl-scripts release:docs
 ```
 
-_See code: [dist/commands/release/docs.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/dist/commands/release/docs.ts)_
+_See code:
+[src/commands/release/docs.ts](https://github.com/stoplightio/scripts/blob/v0.0.0/src/commands/release/docs.ts)_
+
 <!-- commandsstop -->
 
 # Overriding Configs
@@ -139,7 +162,7 @@ Simply create a `jest.config.js` file in the root of your project, and extend th
 ```js
 // ./jest.config.js
 module.exports = {
-  preset: "@stoplight/scripts",
+  preset: '@stoplight/scripts',
 };
 ```
 
@@ -158,17 +181,6 @@ Simply create a `tsconfig.json` file in the root of your project, and extend the
 }
 ```
 
-## TSLint
-
-Simply create a `tslint.json` file in the root of your project, and extend the default config. For example:
-
-```json
-// ./tslint.json
-{
-  "extends": ["@stoplight/scripts/tslint.json"]
-}
-```
-
 ## Semantic Release
 
 Simply add a `release` property to your `package.json` file. For example:
@@ -179,10 +191,7 @@ Simply add a `release` property to your `package.json` file. For example:
   // ... props
   "release": {
     "pkgRoot": "dist",
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator"
-    ]
+    "plugins": ["@semantic-release/commit-analyzer", "@semantic-release/release-notes-generator"]
   }
   // ... props
 }
@@ -190,7 +199,9 @@ Simply add a `release` property to your `package.json` file. For example:
 
 ## Rollup
 
-By default all `dependencies` and `peerDependencies` declared in your `package.json` will be treated as external deps during `sl-scripts bundle`. If you would like to always bundle a dep, list those deps in your `package.json` file like so:
+By default all `dependencies` and `peerDependencies` declared in your `package.json` will be treated as external deps
+during `sl-scripts bundle`. If you would like to always bundle a dep, list those deps in your `package.json` file like
+so:
 
 ```json
 {

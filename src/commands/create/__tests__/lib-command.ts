@@ -37,8 +37,8 @@ describe('sl-scripts create:lib', () => {
             quality: 'codeclimate',
           }),
           null,
-          2
-        )
+          2,
+        ),
       ).toMatchSnapshot('plain-lib');
     });
 
@@ -57,8 +57,8 @@ describe('sl-scripts create:lib', () => {
             quality: 'codeclimate',
           }),
           null,
-          2
-        )
+          2,
+        ),
       ).toMatchSnapshot('react-lib');
     });
   });

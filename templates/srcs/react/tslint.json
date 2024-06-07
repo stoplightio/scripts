@@ -1,3 +1,0 @@
-{
-  "extends": ["tslint-config-stoplight", "tslint-react", "tslint-react-hooks"]
-}

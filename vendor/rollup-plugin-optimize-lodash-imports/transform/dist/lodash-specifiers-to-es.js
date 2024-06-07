@@ -1,5 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.lodashSpecifiersToEs = void 0;
 /**
  * Turns a generic lodash import into a specific import referencing the "lodash-es"
@@ -9,10 +9,13 @@ exports.lodashSpecifiersToEs = void 0;
  * @param specifiers from an AST; assumes they are all ImportSpecifiers
  */
 function lodashSpecifiersToEs(base, specifiers) {
-    const isFp = base.endsWith("fp");
-    return specifiers.map(({ imported, local }) => `import { ${imported.name !== local.name
-        ? imported.name + " as " + local.name
-        : local.name} } from "lodash-es${isFp ? "/fp" : ""}";`);
+  const isFp = base.endsWith('fp');
+  return specifiers.map(
+    ({ imported, local }) =>
+      `import { ${
+        imported.name !== local.name ? imported.name + ' as ' + local.name : local.name
+      } } from "lodash-es${isFp ? '/fp' : ''}";`,
+  );
 }
 exports.lodashSpecifiersToEs = lodashSpecifiersToEs;
 //# sourceMappingURL=lodash-specifiers-to-es.js.map

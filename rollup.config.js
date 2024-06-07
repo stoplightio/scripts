@@ -1,6 +1,6 @@
 'use strict';
-const typescript = require('rollup-plugin-typescript2');
-const { terser } = require('rollup-plugin-terser');
+const typescript = require('@rollup/plugin-typescript');
+const terser = require('@rollup/plugin-terser');
 const commonjs = require('@rollup/plugin-commonjs');
 const json = require('@rollup/plugin-json');
 const path = require('path');
@@ -56,7 +56,7 @@ module.exports = [
       format: 'cjs',
     },
     plugins: [json(), ...plugins()],
-    external
+    external,
   },
   {
     input: path.resolve(BASE_PATH, 'src/index.ts'),

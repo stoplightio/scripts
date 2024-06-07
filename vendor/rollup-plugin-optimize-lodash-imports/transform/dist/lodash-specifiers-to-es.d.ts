@@ -1,4 +1,4 @@
-import type { ImportSpecifier } from "estree";
+import type { ImportSpecifier } from 'estree';
 /**
  * Turns a generic lodash import into a specific import referencing the "lodash-es"
  * pacakge. Note that lodash-es cannot be imported from CommonJS.

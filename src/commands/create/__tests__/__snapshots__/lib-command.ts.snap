@@ -2,189 +2,175 @@
 
 exports[`sl-scripts create:lib createPackage should create the right object for a react library: react-lib 1`] = `
 "{
-  \\"name\\": \\"stoplight\\",
-  \\"version\\": \\"0.0.0\\",
-  \\"description\\": \\"description...\\",
-  \\"keywords\\": [],
-  \\"sideEffects\\": false,
-  \\"homepage\\": \\"https://github.com/stoplightio/scripts\\",
-  \\"bugs\\": \\"https://github.com/stoplightio/scripts/issues\\",
-  \\"author\\": \\"support@stoplight\\",
-  \\"repository\\": {
-    \\"type\\": \\"git\\",
-    \\"url\\": \\"https://github.com/stoplightio/scripts.git\\"
+  "name": "stoplight",
+  "version": "0.0.0",
+  "description": "description...",
+  "keywords": [],
+  "sideEffects": false,
+  "homepage": "https://github.com/stoplightio/scripts",
+  "bugs": "https://github.com/stoplightio/scripts/issues",
+  "author": "support@stoplight",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stoplightio/scripts.git"
   },
-  \\"license\\": \\"Apache-2.0\\",
-  \\"main\\": \\"src/index.ts\\",
-  \\"files\\": [
-    \\"**/*\\"
+  "license": "Apache-2.0",
+  "main": "src/index.ts",
+  "files": [
+    "**/*"
   ],
-  \\"engines\\": {
-    \\"node\\": \\">=10\\"
+  "engines": {
+    "node": ">=10"
   },
-  \\"scripts\\": {
-    \\"build\\": \\"sl-scripts build\\",
-    \\"build.docs\\": \\"build-storybook -c .storybook -o docs-auto\\",
-    \\"bundle\\": \\"sl-scripts bundle\\",
-    \\"commit\\": \\"git-cz\\",
-    \\"lint\\": \\"tslint -c tslint.json 'src/**/*.{ts,tsx}' -p tsconfig.json\\",
-    \\"lint.fix\\": \\"yarn lint --fix\\",
-    \\"release\\": \\"sl-scripts release\\",
-    \\"release.docs\\": \\"sl-scripts release:docs\\",
-    \\"release.dryRun\\": \\"sl-scripts release --dry-run --debug\\",
-    \\"storybook\\": \\"start-storybook -p 9001\\",
-    \\"test\\": \\"jest\\",
-    \\"test.prod\\": \\"yarn lint && yarn test --coverage --maxWorkers=2\\",
-    \\"test.update\\": \\"yarn test --updateSnapshot\\",
-    \\"test.watch\\": \\"yarn test --watch\\",
-    \\"yalc\\": \\"yarn build && (cd dist && yalc push)\\",
-    \\"yalc.watch\\": \\"nodemon --watch 'src/**/*' --exec 'yarn yalc'\\"
+  "scripts": {
+    "build": "sl-scripts build",
+    "build.docs": "build-storybook -c .storybook -o docs-auto",
+    "bundle": "sl-scripts bundle",
+    "commit": "git-cz",
+    "release": "sl-scripts release",
+    "release.docs": "sl-scripts release:docs",
+    "release.dryRun": "sl-scripts release --dry-run --debug",
+    "storybook": "start-storybook -p 9001",
+    "test": "jest",
+    "test.prod": "yarn lint && yarn test --coverage --maxWorkers=2",
+    "test.update": "yarn test --updateSnapshot",
+    "test.watch": "yarn test --watch",
+    "yalc": "yarn build && (cd dist && yalc push)",
+    "yalc.watch": "nodemon --watch 'src/**/*' --exec 'yarn yalc'"
   },
-  \\"peerDependencies\\": {},
-  \\"dependencies\\": {
-    \\"@stoplight/ui-kit\\": \\"1.x.x\\",
-    \\"react\\": \\"16.8.3\\",
-    \\"react-dom\\": \\"16.8.3\\"
+  "peerDependencies": {},
+  "dependencies": {
+    "@stoplight/ui-kit": "1.x.x",
+    "react": "16.8.3",
+    "react-dom": "16.8.3"
   },
-  \\"devDependencies\\": {
-    \\"@stoplight/scripts\\": \\"4.x.x\\",
-    \\"@stoplight/storybook-config\\": \\"1.x.x\\",
-    \\"@types/enzyme\\": \\"3.x.x\\",
-    \\"@types/enzyme-adapter-react-16\\": \\"1.x.x\\",
-    \\"@types/jest\\": \\"24.x.x\\",
-    \\"@types/react\\": \\"16.x.x\\",
-    \\"@types/react-dom\\": \\"16.x.x\\",
-    \\"enzyme\\": \\"3.x.x\\",
-    \\"enzyme-adapter-react-16\\": \\"1.x.x\\",
-    \\"enzyme-to-json\\": \\"3.x.x\\",
-    \\"jest\\": \\"24.x.x\\",
-    \\"jest-enzyme\\": \\"7.x.x\\",
-    \\"nodemon\\": \\"1.x.x\\",
-    \\"prettier\\": \\"1.x.x\\",
-    \\"ts-jest\\": \\"24.x.x\\",
-    \\"tslint\\": \\"5.12.x\\",
-    \\"tslint-config-prettier\\": \\"1.18.x\\",
-    \\"tslint-config-stoplight\\": \\"1.2.x\\",
-    \\"tslint-plugin-prettier\\": \\"2.0.x\\",
-    \\"tslint-react\\": \\"3.6.x\\",
-    \\"tslint-react-hooks\\": \\"1.1.x\\",
-    \\"typescript\\": \\"3.3.x\\"
+  "devDependencies": {
+    "@stoplight/scripts": "4.x.x",
+    "@stoplight/storybook-config": "1.x.x",
+    "@types/enzyme": "3.x.x",
+    "@types/enzyme-adapter-react-16": "1.x.x",
+    "@types/jest": "24.x.x",
+    "@types/react": "16.x.x",
+    "@types/react-dom": "16.x.x",
+    "enzyme": "3.x.x",
+    "enzyme-adapter-react-16": "1.x.x",
+    "enzyme-to-json": "3.x.x",
+    "jest": "24.x.x",
+    "jest-enzyme": "7.x.x",
+    "nodemon": "1.x.x",
+    "prettier": "1.x.x",
+    "ts-jest": "24.x.x",
+    "typescript": "3.3.x"
   },
-  \\"lint-staged\\": {
-    \\"*.{ts,tsx}$\\": [
-      \\"yarn lint.fix\\",
-      \\"git add\\"
+  "lint-staged": {
+    "*.{ts,tsx}$": [
+      "yarn lint.fix",
+      "git add"
     ]
   },
-  \\"husky\\": {
-    \\"hooks\\": {
-      \\"commit-msg\\": \\"commitlint -E HUSKY_GIT_PARAMS\\",
-      \\"pre-commit\\": \\"lint-staged\\"
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
   },
-  \\"config\\": {
-    \\"commitizen\\": {
-      \\"path\\": \\"node_modules/cz-conventional-changelog\\"
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
     }
   },
-  \\"commitlint\\": {
-    \\"extends\\": [
-      \\"@commitlint/config-conventional\\"
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
     ]
   },
-  \\"prettier\\": {
-    \\"printWidth\\": 120,
-    \\"singleQuote\\": true,
-    \\"trailingComma\\": \\"all\\"
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "all"
   },
-  \\"release\\": {
-    \\"extends\\": \\"@stoplight/scripts/release\\"
+  "release": {
+    "extends": "@stoplight/scripts/release"
   }
 }"
 `;
 
 exports[`sl-scripts create:lib createPackage should create the right object for a ts library: plain-lib 1`] = `
 "{
-  \\"name\\": \\"stoplight\\",
-  \\"version\\": \\"0.0.0\\",
-  \\"description\\": \\"description...\\",
-  \\"keywords\\": [],
-  \\"sideEffects\\": false,
-  \\"homepage\\": \\"https://github.com/stoplightio/scripts\\",
-  \\"bugs\\": \\"https://github.com/stoplightio/scripts/issues\\",
-  \\"author\\": \\"support@stoplight\\",
-  \\"repository\\": {
-    \\"type\\": \\"git\\",
-    \\"url\\": \\"https://github.com/stoplightio/scripts.git\\"
+  "name": "stoplight",
+  "version": "0.0.0",
+  "description": "description...",
+  "keywords": [],
+  "sideEffects": false,
+  "homepage": "https://github.com/stoplightio/scripts",
+  "bugs": "https://github.com/stoplightio/scripts/issues",
+  "author": "support@stoplight",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stoplightio/scripts.git"
   },
-  \\"license\\": \\"Apache-2.0\\",
-  \\"main\\": \\"src/index.ts\\",
-  \\"files\\": [
-    \\"**/*\\"
+  "license": "Apache-2.0",
+  "main": "src/index.ts",
+  "files": [
+    "**/*"
   ],
-  \\"engines\\": {
-    \\"node\\": \\">=10\\"
+  "engines": {
+    "node": ">=10"
   },
-  \\"scripts\\": {
-    \\"build\\": \\"sl-scripts build\\",
-    \\"bundle\\": \\"sl-scripts bundle\\",
-    \\"commit\\": \\"git-cz\\",
-    \\"lint\\": \\"tslint -c tslint.json 'src/**/*.{ts,tsx}' -p tsconfig.json\\",
-    \\"lint.fix\\": \\"yarn lint --fix\\",
-    \\"release\\": \\"sl-scripts release\\",
-    \\"release.docs\\": \\"sl-scripts release:docs\\",
-    \\"release.dryRun\\": \\"sl-scripts release --dry-run --debug\\",
-    \\"test\\": \\"jest\\",
-    \\"test.prod\\": \\"yarn lint && yarn test --coverage --maxWorkers=2\\",
-    \\"test.update\\": \\"yarn test --updateSnapshot\\",
-    \\"test.watch\\": \\"yarn test --watch\\",
-    \\"yalc\\": \\"yarn build && (cd dist && yalc push)\\",
-    \\"yalc.watch\\": \\"nodemon --watch 'src/**/*' --exec 'yarn yalc'\\"
+  "scripts": {
+    "build": "sl-scripts build",
+    "bundle": "sl-scripts bundle",
+    "commit": "git-cz",
+    "release": "sl-scripts release",
+    "release.docs": "sl-scripts release:docs",
+    "release.dryRun": "sl-scripts release --dry-run --debug",
+    "test": "jest",
+    "test.prod": "yarn lint && yarn test --coverage --maxWorkers=2",
+    "test.update": "yarn test --updateSnapshot",
+    "test.watch": "yarn test --watch",
+    "yalc": "yarn build && (cd dist && yalc push)",
+    "yalc.watch": "nodemon --watch 'src/**/*' --exec 'yarn yalc'"
   },
-  \\"peerDependencies\\": {},
-  \\"dependencies\\": {},
-  \\"devDependencies\\": {
-    \\"@stoplight/scripts\\": \\"4.x.x\\",
-    \\"@types/jest\\": \\"24.x.x\\",
-    \\"jest\\": \\"24.x.x\\",
-    \\"nodemon\\": \\"1.x.x\\",
-    \\"prettier\\": \\"1.x.x\\",
-    \\"ts-jest\\": \\"24.x.x\\",
-    \\"tslint\\": \\"5.12.x\\",
-    \\"tslint-config-prettier\\": \\"1.18.x\\",
-    \\"tslint-config-stoplight\\": \\"1.2.x\\",
-    \\"tslint-plugin-prettier\\": \\"2.0.x\\",
-    \\"typescript\\": \\"3.3.x\\"
+  "peerDependencies": {},
+  "dependencies": {},
+  "devDependencies": {
+    "@stoplight/scripts": "4.x.x",
+    "@types/jest": "24.x.x",
+    "jest": "24.x.x",
+    "nodemon": "1.x.x",
+    "prettier": "1.x.x",
+    "ts-jest": "24.x.x",
+    "typescript": "3.3.x"
   },
-  \\"lint-staged\\": {
-    \\"*.{ts,tsx}$\\": [
-      \\"yarn lint.fix\\",
-      \\"git add\\"
+  "lint-staged": {
+    "*.{ts,tsx}$": [
+      "yarn lint.fix",
+      "git add"
     ]
   },
-  \\"husky\\": {
-    \\"hooks\\": {
-      \\"commit-msg\\": \\"commitlint -E HUSKY_GIT_PARAMS\\",
-      \\"pre-commit\\": \\"lint-staged\\"
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
   },
-  \\"config\\": {
-    \\"commitizen\\": {
-      \\"path\\": \\"node_modules/cz-conventional-changelog\\"
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
     }
   },
-  \\"commitlint\\": {
-    \\"extends\\": [
-      \\"@commitlint/config-conventional\\"
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
     ]
   },
-  \\"prettier\\": {
-    \\"printWidth\\": 120,
-    \\"singleQuote\\": true,
-    \\"trailingComma\\": \\"all\\"
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "all"
   },
-  \\"release\\": {
-    \\"extends\\": \\"@stoplight/scripts/release\\"
+  "release": {
+    "extends": "@stoplight/scripts/release"
   }
 }"
 `;

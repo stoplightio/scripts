@@ -21,8 +21,6 @@
     "build": "sl-scripts build",
     "bundle": "sl-scripts bundle",
     "commit": "git-cz",
-    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' -p tsconfig.json",
-    "lint.fix": "yarn lint --fix",
     "test": "jest",
     "test.prod": "yarn lint && yarn test --coverage --maxWorkers=2",
     "test.update": "yarn test --updateSnapshot",
@@ -39,10 +37,6 @@
     "nodemon": "1.x.x",
     "prettier": "1.x.x",
     "ts-jest": "24.x.x",
-    "tslint": "5.12.x",
-    "tslint-config-prettier": "1.18.x",
-    "tslint-config-stoplight": "1.2.x",
-    "tslint-plugin-prettier": "2.0.x",
     "typescript": "3.3.x"
   },
   "lint-staged": {

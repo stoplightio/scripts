@@ -1,20 +1,20 @@
-import type { Plugin } from "rollup";
-import { FilterPattern } from "@rollup/pluginutils";
+import type { Plugin } from 'rollup';
+import { FilterPattern } from '@rollup/pluginutils';
 export declare type OptimizeLodashOptions = {
-    /**
-     * A minimatch pattern, or array of patterns, of files that should be
-     * processed by this plugin (if omitted, all files are included by default)
-     */
-    include?: FilterPattern;
-    /**
-     * Files that should be excluded, if `include` is otherwise too permissive.
-     */
-    exclude?: FilterPattern;
-    /**
-     * Changes *all* lodash imports (but not lodash/fp imports!) to 'lodash-es' imports.
-     * Don't use this for CommonJS outputs, the plugin will error should you do so.
-     */
-    useLodashEs?: true;
+  /**
+   * A minimatch pattern, or array of patterns, of files that should be
+   * processed by this plugin (if omitted, all files are included by default)
+   */
+  include?: FilterPattern;
+  /**
+   * Files that should be excluded, if `include` is otherwise too permissive.
+   */
+  exclude?: FilterPattern;
+  /**
+   * Changes *all* lodash imports (but not lodash/fp imports!) to 'lodash-es' imports.
+   * Don't use this for CommonJS outputs, the plugin will error should you do so.
+   */
+  useLodashEs?: true;
 };
 /**
  * Converts lodash imports to be specific, enabling better tree-shaking:
@@ -36,5 +36,9 @@ export declare type OptimizeLodashOptions = {
  * @param exclude files/globs to exclude from this plugin (optional)
  * @param useLodashEs set `true` to convert imports to use "lodash-es" (optional; default false)
  */
-export declare function optimizeLodashImports({ include, exclude, useLodashEs, }?: OptimizeLodashOptions): Plugin & Required<Pick<Plugin, "transform">>;
+export declare function optimizeLodashImports({
+  include,
+  exclude,
+  useLodashEs,
+}?: OptimizeLodashOptions): Plugin & Required<Pick<Plugin, 'transform'>>;
 //# sourceMappingURL=index.d.ts.map
