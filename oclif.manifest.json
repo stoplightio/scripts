@@ -1,5 +1,45 @@
 {
   "commands": {
+    "bundle": {
+      "aliases": [],
+      "args": {},
+      "description": "Bundle source code",
+      "examples": [
+        "$ sl-scripts bundle"
+      ],
+      "flags": {
+        "minify": {
+          "description": "minify output using terser",
+          "name": "minify",
+          "required": false,
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "verbose": {
+          "description": "moar logs",
+          "name": "verbose",
+          "required": false,
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "bundle",
+      "pluginAlias": "@stoplight/scripts",
+      "pluginName": "@stoplight/scripts",
+      "pluginType": "core",
+      "strict": false,
+      "parse": true,
+      "parserOptions": {},
+      "isESM": false,
+      "relativePath": [
+        "dist",
+        "commands",
+        "bundle",
+        "index.js"
+      ]
+    },
     "build": {
       "aliases": [],
       "args": {},
@@ -56,46 +96,6 @@
         "commands",
         "create",
         "lib.js"
-      ]
-    },
-    "bundle": {
-      "aliases": [],
-      "args": {},
-      "description": "Bundle source code",
-      "examples": [
-        "$ sl-scripts bundle"
-      ],
-      "flags": {
-        "minify": {
-          "description": "minify output using terser",
-          "name": "minify",
-          "required": false,
-          "allowNo": false,
-          "type": "boolean"
-        },
-        "verbose": {
-          "description": "moar logs",
-          "name": "verbose",
-          "required": false,
-          "allowNo": false,
-          "type": "boolean"
-        }
-      },
-      "hasDynamicHelp": false,
-      "hiddenAliases": [],
-      "id": "bundle",
-      "pluginAlias": "@stoplight/scripts",
-      "pluginName": "@stoplight/scripts",
-      "pluginType": "core",
-      "strict": false,
-      "parse": true,
-      "parserOptions": {},
-      "isESM": false,
-      "relativePath": [
-        "dist",
-        "commands",
-        "bundle",
-        "index.js"
       ]
     },
     "release:docs": {

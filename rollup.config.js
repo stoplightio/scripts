@@ -6,8 +6,7 @@ const json = require('@rollup/plugin-json');
 const path = require('path');
 const fs = require('fs');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
-
-const { optimizeLodashImports } = require('./vendor/rollup-plugin-optimize-lodash-imports/rollup-plugin/dist/index.js');
+const { optimizeLodashImports } = require('@optimize-lodash/rollup-plugin');
 
 const BASE_PATH = process.cwd();
 

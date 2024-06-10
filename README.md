@@ -8,17 +8,8 @@
 - [@stoplight/scripts](#stoplightscripts)
 - [Usage](#usage)
 - [Commands](#commands)
-  - [`sl-scripts build`](#sl-scripts-build)
-  - [`sl-scripts bundle`](#sl-scripts-bundle)
-  - [`sl-scripts create:lib`](#sl-scripts-createlib)
-  - [`sl-scripts release`](#sl-scripts-release)
-  - [`sl-scripts release:docs`](#sl-scripts-releasedocs)
 - [Overriding Configs](#overriding-configs)
-  - [Jest](#jest)
-  - [TS](#ts)
-  - [Semantic Release](#semantic-release)
-  - [Rollup](#rollup)
-  <!-- tocstop -->
+<!-- tocstop -->
 
 # Usage
 
@@ -32,19 +23,11 @@ npx @stoplight/scripts create:lib
 
 <!-- commands -->
 
-- [@stoplight/scripts](#stoplightscripts)
-- [Usage](#usage)
-- [Commands](#commands)
-  - [`sl-scripts build`](#sl-scripts-build)
-  - [`sl-scripts bundle`](#sl-scripts-bundle)
-  - [`sl-scripts create:lib`](#sl-scripts-createlib)
-  - [`sl-scripts release`](#sl-scripts-release)
-  - [`sl-scripts release:docs`](#sl-scripts-releasedocs)
-- [Overriding Configs](#overriding-configs)
-  - [Jest](#jest)
-  - [TS](#ts)
-  - [Semantic Release](#semantic-release)
-  - [Rollup](#rollup)
+- [`sl-scripts build`](#sl-scripts-build)
+- [`sl-scripts bundle`](#sl-scripts-bundle)
+- [`sl-scripts create:lib`](#sl-scripts-createlib)
+- [`sl-scripts release`](#sl-scripts-release)
+- [`sl-scripts release:docs`](#sl-scripts-releasedocs)
 
 ## `sl-scripts build`
 
