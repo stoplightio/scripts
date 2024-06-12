@@ -1,3 +1,6 @@
+#!/bin/sh
+set -e
+
 Repository=$1
 
 echo Testing repository $Repository
@@ -13,7 +16,8 @@ git clone git@github.com:stoplightio/$Repository.git
 cd $Repository
 
 tmp=$(mktemp)
-jq '.resolutions."@stoplight/scripts" = "file:../project"' package.json > "$tmp" && mv "$tmp" package.json
+jq '.resolutions."@stoplight/scripts" = "file:../project"' package.json > "$tmp"  
+jq '.devDependencies."@stoplight/scripts" = "file:../project"' "$tmp" > package.json
 
 yarn
 yarn build
