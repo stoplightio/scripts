@@ -1,13 +1,12 @@
 'use strict';
-const typescript = require('rollup-plugin-typescript2');
-const { terser } = require('rollup-plugin-terser');
+const typescript = require('@rollup/plugin-typescript');
+const terser = require('@rollup/plugin-terser');
 const commonjs = require('@rollup/plugin-commonjs');
 const json = require('@rollup/plugin-json');
 const path = require('path');
 const fs = require('fs');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
-
-const { optimizeLodashImports } = require('./vendor/rollup-plugin-optimize-lodash-imports/rollup-plugin/dist/index.js');
+const { optimizeLodashImports } = require('@optimize-lodash/rollup-plugin');
 
 const BASE_PATH = process.cwd();
 
@@ -24,7 +23,6 @@ const plugins = () =>
   [
     typescript({
       tsconfig: getConfigFile('tsconfig.build.json'),
-      useTsconfigDeclarationDir: true,
     }),
     nodeResolve(),
     commonjs(),
@@ -56,7 +54,7 @@ module.exports = [
       format: 'cjs',
     },
     plugins: [json(), ...plugins()],
-    external
+    external,
   },
   {
     input: path.resolve(BASE_PATH, 'src/index.ts'),

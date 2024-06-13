@@ -38,7 +38,7 @@ describe.skip('sl-scripts build', () => {
         'node_modules',
         '@stoplight',
         'scripts',
-        'tsconfig.json'
+        'tsconfig.json',
       )}`,
     ]);
     expect(pkgFilePath).toEqual(path.resolve(cwd(), 'dist', 'package.json'));

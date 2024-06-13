@@ -50,14 +50,20 @@ export default class CreateLibCommand extends Command {
       {
         name: 'license',
         type: 'list',
-        choices: [{ name: 'Apache 2', value: 'apache2' }, { name: 'None', value: false }],
+        choices: [
+          { name: 'Apache 2', value: 'apache2' },
+          { name: 'None', value: false },
+        ],
       },
       {
         name: 'react',
         message: 'needs react?',
         type: 'expand',
         default: 0,
-        choices: [{ key: 'Y', name: 'Yes', value: true }, { key: 'n', name: 'No', value: false }],
+        choices: [
+          { key: 'Y', name: 'Yes', value: true },
+          { key: 'n', name: 'No', value: false },
+        ],
       },
       {
         name: 'ci',

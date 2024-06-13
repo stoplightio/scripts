@@ -12,8 +12,6 @@
     "enzyme": "3.x.x",
     "enzyme-adapter-react-16": "1.x.x",
     "enzyme-to-json": "3.x.x",
-    "jest-enzyme": "7.x.x",
-    "tslint-react": "3.6.x",
-    "tslint-react-hooks": "1.1.x"
+    "jest-enzyme": "7.x.x"
   }
 }

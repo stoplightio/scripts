@@ -1,17 +1,19 @@
 version: 2.1
 
 executors:
-  node16:
-    docker:
-      - image: cimg/node:16.20
   node18:
     docker:
-      - image: cimg/node:18.19
+      - image: cimg/node:18.20
+  node20:
+    docker:
+      - image: cimg/node:20.14
+  node22:
+    docker:
+      - image: cimg/node:22.1
 
 jobs:
-  test_node_lts:
-    docker:
-      - image: cimg/node:lts
+  test:
+    executor: node18
     steps:
       - checkout
       - run: yarn
@@ -31,8 +33,7 @@ jobs:
       - run: ./test/test-build-on-repository.sh << parameters.repository >>
 
   release:
-    docker:
-      - image: circleci/node:lts
+    executor: node18
     steps:
       - checkout
       - run: yarn
@@ -40,7 +41,6 @@ jobs:
       - run: yarn release
 
 workflows:
-  version: 2
   test_and_release:
     jobs:
       - test_build_on_repository:
@@ -48,23 +48,19 @@ workflows:
             parameters:
               node-version:
                 - node18
+                - node20
+                - node22
               repository:
+                - elements
                 - json
                 # - markdown // private
                 # - markdown-viewer // private
                 - json-schema-tree
-      - test_build_on_repository:
-          matrix:
-            parameters:
-              node-version:
-                - node16
-              repository:
-                - elements
                 - json-schema-viewer
-      - test_node_lts
+      - test
       - release:
           filters:
             branches:
               only: master
           requires:
-            - test_node_lts
+            - test

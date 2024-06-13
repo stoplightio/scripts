@@ -9,11 +9,14 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   coveragePathIgnorePatterns: ['/node_modules/', '/__tests__/', '/__stories__/', '__mocks__/', 'index.ts', 'types.ts'],
   collectCoverageFrom: ['src/**/*.{ts,tsx}'],
-  globals: {
-    'ts-jest': {
-      diagnostics: {
-        ignoreCodes: [151001],
+  transform: {
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        diagnostics: {
+          ignoreCodes: [151001],
+        },
       },
-    },
+    ],
   },
 };

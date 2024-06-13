@@ -1,0 +1,177 @@
+{
+  "commands": {
+    "bundle": {
+      "aliases": [],
+      "args": {},
+      "description": "Bundle source code",
+      "examples": [
+        "$ sl-scripts bundle"
+      ],
+      "flags": {
+        "minify": {
+          "description": "minify output using terser",
+          "name": "minify",
+          "required": false,
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "verbose": {
+          "description": "moar logs",
+          "name": "verbose",
+          "required": false,
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "bundle",
+      "pluginAlias": "@stoplight/scripts",
+      "pluginName": "@stoplight/scripts",
+      "pluginType": "core",
+      "strict": false,
+      "parse": true,
+      "parserOptions": {},
+      "isESM": false,
+      "relativePath": [
+        "dist",
+        "commands",
+        "bundle",
+        "index.js"
+      ]
+    },
+    "build": {
+      "aliases": [],
+      "args": {},
+      "description": "Build source code",
+      "examples": [
+        "$ sl-scripts build"
+      ],
+      "flags": {
+        "verbose": {
+          "description": "moar logs",
+          "name": "verbose",
+          "required": false,
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "build",
+      "pluginAlias": "@stoplight/scripts",
+      "pluginName": "@stoplight/scripts",
+      "pluginType": "core",
+      "strict": false,
+      "parse": true,
+      "parserOptions": {},
+      "isESM": false,
+      "relativePath": [
+        "dist",
+        "commands",
+        "build",
+        "index.js"
+      ]
+    },
+    "create:lib": {
+      "aliases": [],
+      "args": {},
+      "description": "Scaffold out a new library.",
+      "examples": [
+        "$ sl-scripts create:lib"
+      ],
+      "flags": {},
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "create:lib",
+      "pluginAlias": "@stoplight/scripts",
+      "pluginName": "@stoplight/scripts",
+      "pluginType": "core",
+      "strict": true,
+      "parse": true,
+      "parserOptions": {},
+      "isESM": false,
+      "relativePath": [
+        "dist",
+        "commands",
+        "create",
+        "lib.js"
+      ]
+    },
+    "release:docs": {
+      "aliases": [],
+      "args": {},
+      "description": "Push built docs to github pages.",
+      "examples": [
+        "$ sl-scripts release:docs"
+      ],
+      "flags": {
+        "dry-run": {
+          "description": "run the release process but do not publish",
+          "name": "dry-run",
+          "required": false,
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "verbose": {
+          "description": "moar logs",
+          "name": "verbose",
+          "required": false,
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "release:docs",
+      "pluginAlias": "@stoplight/scripts",
+      "pluginName": "@stoplight/scripts",
+      "pluginType": "core",
+      "strict": true,
+      "parse": true,
+      "parserOptions": {},
+      "isESM": false,
+      "relativePath": [
+        "dist",
+        "commands",
+        "release",
+        "docs.js"
+      ]
+    },
+    "release": {
+      "aliases": [],
+      "args": {},
+      "description": "Publish new src or docs release.",
+      "examples": [
+        "$ sl-scripts release",
+        "$ sl-scripts release:docs"
+      ],
+      "flags": {
+        "verbose": {
+          "description": "moar logs",
+          "name": "verbose",
+          "required": false,
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "release",
+      "pluginAlias": "@stoplight/scripts",
+      "pluginName": "@stoplight/scripts",
+      "pluginType": "core",
+      "strict": false,
+      "parse": true,
+      "parserOptions": {},
+      "isESM": false,
+      "relativePath": [
+        "dist",
+        "commands",
+        "release",
+        "index.js"
+      ]
+    }
+  },
+  "version": "0.0.0"
+}
