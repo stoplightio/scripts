@@ -48,6 +48,7 @@ export default class BundleCommand extends BuildCommand {
     const pkg = super.preparePackageJson();
 
     const exports = {
+      types: "./index.d.ts",
       require: './index.js',
       import: './index.mjs',
     };
