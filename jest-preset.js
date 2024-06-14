@@ -2,7 +2,7 @@ module.exports = {
   rootDir: process.cwd(),
   testEnvironment: 'node',
   transform: {
-    '.(ts|tsx)': 'ts-jest',
+    '\\.(ts|tsx)$': 'ts-jest',
   },
   // don't include the __tests__ folders in the templates
   testMatch: ['<rootDir>/src/**/__tests__/*.(ts|js)?(x)'],

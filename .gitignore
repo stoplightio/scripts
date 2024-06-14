@@ -13,6 +13,7 @@
 /build
 /dist
 /docs-auto
+/oclif.manifest.json
 
 # misc
 .DS_Store
