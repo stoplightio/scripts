@@ -136,5 +136,8 @@
     "ts-jest": "29.1.4",
     "ts-node": "10.9.2",
     "typescript": "^5.4.5"
+  },
+  "resolutions": {
+    "cross-spawn": "7.0.5"
   }
 }
