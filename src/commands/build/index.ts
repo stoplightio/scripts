@@ -88,9 +88,11 @@ export default class BuildCommand extends Command {
       'exports',
     ]);
 
-    releasePkg.main = 'index.js';
+    releasePkg.main = './index.js';
     if (!('typings' in releasePkg)) {
-      releasePkg.typings = 'index.d.ts';
+      releasePkg.typings = './index.d.ts';
+    } else {
+      releasePkg.typings = releasePkg.typings.replace(/^(\.\/)?src\//, './');
     }
 
     return releasePkg;
